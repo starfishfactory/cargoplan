@@ -15,7 +15,6 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900"
           rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+KR&amp;subset=korean" rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
     <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -34,8 +33,14 @@
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
 
+    <!-- Custom Stylesheet File -->
+    <link href="css/custom.css" rel="stylesheet">
+
     <!-- Responsive Stylesheet File -->
     <link href="css/responsive.css" rel="stylesheet">
+
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.6.3/css/all.css'
+          integrity='sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/' crossorigin='anonymous'>
 
     <!-- =======================================================
       Theme Name: eBusiness
@@ -88,11 +93,13 @@
                                 <li>
                                     <a class="page-scroll" href="#services">Services</a>
                                 </li>
+                                <!--
+                                                                <li>
+                                                                    <a class="page-scroll" href="#team">Team</a>
+                                                                </li>
+                                -->
                                 <li>
-                                    <a class="page-scroll" href="#team">Team</a>
-                                </li>
-                                <li>
-                                    <a class="page-scroll" href="#portfolio">Portfolio</a>
+                                    <a class="page-scroll" href="#partners">Partners</a>
                                 </li>
 
                                 <!--
@@ -105,7 +112,9 @@
                                 -->
 
                                 <li>
-                                    <a class="page-scroll" href="#blog">Blog</a>
+                                    <a class="page-scroll" href="#blog">
+                                        <News></News>
+                                    </a>
                                 </li>
                                 <li>
                                     <a class="page-scroll" href="#contact">Contact</a>
@@ -127,9 +136,9 @@
 <div id="home" class="slider-area">
     <div class="bend niceties preview-2">
         <div id="ensign-nivoslider" class="slides">
-            <img src="img/slider/slider.1.cp.jpg" alt="" title="#slider-direction-1"/>
-            <img src="img/slider/slider2.jpg" alt="" title="#slider-direction-2"/>
-            <img src="img/slider/slider3.jpg" alt="" title="#slider-direction-3"/>
+            <img src="img/slider/slider.air.jpg" alt="" title="#slider-direction-1"/>
+            <img src="img/slider/slider.container.jpg" alt="" title="#slider-direction-2"/>
+            <img src="img/slider/slider.train.jpg" alt="" title="#slider-direction-3"/>
         </div>
 
         <!-- direction 1 -->
@@ -145,7 +154,7 @@
                             </div>
                             <!-- layer 2 -->
                             <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
-                                <h1 class="title2">당신의 물류를 책임 지는 플래너 = 카고 플랜</h1>
+                                <h1 class="title2">당신의 물류를 책임 지는 플래너 = <span>CARGO</span> <span>PLAN</span></h1>
                             </div>
                             <!-- layer 3 -->
                             <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
@@ -166,11 +175,11 @@
                         <div class="slider-content text-center">
                             <!-- layer 1 -->
                             <div class="layer-1-1 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
-                                <h2 class="title1">The Best Business Information </h2>
+                                <h2 class="title1">경험으로 검증된 최상의 운송 서비스 </h2>
                             </div>
                             <!-- layer 2 -->
                             <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
-                                <h1 class="title2">We're In The Business Of Get Quality Business Service</h1>
+                                <h1 class="title2">15년 이상의 풍부한 경험과 신뢰를 바탕으로 최상의 운송 서비스를 제공합니다.</h1>
                             </div>
                             <!-- layer 3 -->
                             <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
@@ -191,11 +200,11 @@
                         <div class="slider-content">
                             <!-- layer 1 -->
                             <div class="layer-1-1 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
-                                <h2 class="title1">The Best business Information </h2>
+                                <h2 class="title1">고객이 원하는 신속, 정확한 서비스</h2>
                             </div>
                             <!-- layer 2 -->
                             <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
-                                <h1 class="title2">Helping Business Security & Peace of Mind for Your Family</h1>
+                                <h1 class="title2">CARGO PLAN 은 기본에 충실한 서비스로 고객의 Business 를 성사 시켜 드립니다.</h1>
                             </div>
                             <!-- layer 3 -->
                             <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
@@ -217,7 +226,7 @@
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="section-headline text-center">
-                    <h2>About eBusiness</h2>
+                    <h2>About <img src="img/logo-color-two-row.png" alt="" title="" style="vertical-align: sub;"></h2>
                 </div>
             </div>
         </div>
@@ -227,7 +236,7 @@
                 <div class="well-left">
                     <div class="single-well">
                         <a href="#">
-                            <img src="img/about/1.jpg" alt="">
+                            <img src="img/about/handshake.jpg" alt="">
                         </a>
                     </div>
                 </div>
@@ -237,28 +246,27 @@
                 <div class="well-middle">
                     <div class="single-well">
                         <a href="#">
-                            <h4 class="sec-head">project Maintenance</h4>
+                            <h4 class="sec-head">글로벌 물류 디자인</h4>
                         </a>
-                        <p>
-                            Redug Lagre dolor sit amet, consectetur adipisicing elit. Itaque quas officiis iure
-                            aspernatur sit adipisci quaerat unde at nequeRedug Lagre dolor sit amet, consectetur
-                            adipisicing elit. Itaque quas officiis iure
-                        </p>
+                        <p>카고플랜은 대표의 말말말 대표의 말말말 대표의 말말말 대표의 말말말 대표의 말말말 대표의 말말말 대표의 말말말 대표의 말말말 대표의 말말말 대표의 말말말 </p>
                         <ul>
                             <li>
-                                <i class="fa fa-check"></i> Interior design Package
+                                <i class="fa fa-check"></i> 국제물류 - 항공, 해상, 특송
                             </li>
                             <li>
-                                <i class="fa fa-check"></i> Building House
+                                <i class="fa fa-check"></i> 운송 - 국내, 해외, 특수
                             </li>
                             <li>
-                                <i class="fa fa-check"></i> Reparing of Residentail Roof
+                                <i class="fa fa-check"></i> 물류센터
                             </li>
                             <li>
-                                <i class="fa fa-check"></i> Renovaion of Commercial Office
+                                <i class="fa fa-check"></i> 통관/관세 환급 - 수출입 통관대행, 원산지 증명, 과세감면, 형식승인
                             </li>
                             <li>
-                                <i class="fa fa-check"></i> Make Quality Products
+                                <i class="fa fa-check"></i> 3자 물류 서비스
+                            </li>
+                            <li>
+                                <i class="fa fa-check"></i> 물류 컨설팅 - 원가분석, 프로세스 진단
                             </li>
                         </ul>
                     </div>
@@ -270,13 +278,43 @@
 </div>
 <!-- End About area -->
 
+<!-- Start Wellcome Area -->
+<div class="wellcome-area">
+    <div class="well-bg">
+        <div class="test-overly"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="wellcome-text">
+                        <div class="well-text text-center">
+                            <h2>Welcome to CARGO PLAN</h2>
+                            <p>
+                                고객의 Business 를 빠르고 정확하게 성사 시켜드립니다. 지금 바로 연락주세요.
+                            </p>
+                            <div class="subs-feilds">
+                                <div class="suscribe-input">
+                                    <input type="email" class="email form-control width-80" id="sus_email"
+                                           placeholder="Email">
+                                    <button type="submit" id="sus_submit" class="add-btn width-20">문의 메일</button>
+                                    <div id="msg_Submit" class="h3 text-center hidden"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Wellcome Area -->
+
 <!-- Start Service area -->
 <div id="services" class="services-area area-padding">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="section-headline services-head text-center">
-                    <h2>Our Services</h2>
+                    <h2>Services</h2>
                 </div>
             </div>
         </div>
@@ -288,12 +326,12 @@
                         <div class="services-details">
                             <div class="single-services">
                                 <a class="services-icon" href="#">
-                                    <i class="fa fa-code"></i>
+                                    <i class="fas fa-box"></i>
                                 </a>
-                                <h4>Expert Coder</h4>
+                                <h4>국제 물류</h4>
                                 <p>
-                                    will have to make sure the prototype looks finished by inserting text or photo.make
-                                    sure the prototype looks finished by.
+                                    전 세계에 네트워크 및 물류 시스템을 구축하여 신속, 정확하게 운송 서비스 제공.
+                                    신속한 스케쥴 확정 및 합리적인 운임 계약으로 고객 만족도 제고.
                                 </p>
                             </div>
                         </div>
@@ -305,12 +343,11 @@
                         <div class="services-details">
                             <div class="single-services">
                                 <a class="services-icon" href="#">
-                                    <i class="fa fa-camera-retro"></i>
+                                    <i class="fas fa-shipping-fast"></i>
                                 </a>
-                                <h4>Creative Designer</h4>
+                                <h4>운송</h4>
                                 <p>
-                                    will have to make sure the prototype looks finished by inserting text or photo.make
-                                    sure the prototype looks finished by.
+                                    수출상의 창고로부터 수입상 창고까지, 포장, 보관, 통관, 육상운송, 해상운송, 항공운송, 서류대행 등 모든 업무에 대하여 원스톱 물류대행 서비스 제공
                                 </p>
                             </div>
                         </div>
@@ -323,12 +360,12 @@
                         <div class="services-details">
                             <div class="single-services">
                                 <a class="services-icon" href="#">
-                                    <i class="fa fa-wordpress"></i>
+                                    <i class="fas fa-warehouse"></i>
                                 </a>
-                                <h4>Wordpress Developer</h4>
+                                <h4>물류 센터</h4>
                                 <p>
-                                    will have to make sure the prototype looks finished by inserting text or photo.make
-                                    sure the prototype looks finished by.
+                                    전세계 지점별 창고를 기반으로 내륙운송의 기반을 구축하였으며 자체 창고 운영을 통하여 보다 안전하고 믿을 수 있는 화물보관 및 관리 서비스를 제공하고
+                                    있습니다.
                                 </p>
                             </div>
                         </div>
@@ -341,9 +378,27 @@
                         <div class="services-details">
                             <div class="single-services">
                                 <a class="services-icon" href="#">
-                                    <i class="fa fa-camera-retro"></i>
+                                    <i class="far fa-edit"></i>
                                 </a>
-                                <h4>Social Marketer </h4>
+                                <h4>통관/관세 대행</h4>
+                                <p>
+                                    수출입 통관대행, 원산지 증명, 과세감면, 형식승인
+                                </p>
+                            </div>
+                        </div>
+                        <!-- end about-details -->
+                    </div>
+                </div>
+                <!-- End Left services -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <!-- end col-md-4 -->
+                    <div class=" about-move">
+                        <div class="services-details">
+                            <div class="single-services">
+                                <a class="services-icon" href="#">
+                                    <i class="fa fa-handshake-o"></i>
+                                </a>
+                                <h4>3자 물류 서비스</h4>
                                 <p>
                                     will have to make sure the prototype looks finished by inserting text or photo.make
                                     sure the prototype looks finished by.
@@ -360,28 +415,9 @@
                         <div class="services-details">
                             <div class="single-services">
                                 <a class="services-icon" href="#">
-                                    <i class="fa fa-bar-chart"></i>
+                                    <i class="fas fa-calendar-alt"></i>
                                 </a>
-                                <h4>Seo Expart</h4>
-                                <p>
-                                    will have to make sure the prototype looks finished by inserting text or photo.make
-                                    sure the prototype looks finished by.
-                                </p>
-                            </div>
-                        </div>
-                        <!-- end about-details -->
-                    </div>
-                </div>
-                <!-- End Left services -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <!-- end col-md-4 -->
-                    <div class=" about-move">
-                        <div class="services-details">
-                            <div class="single-services">
-                                <a class="services-icon" href="#">
-                                    <i class="fa fa-ticket"></i>
-                                </a>
-                                <h4>24/7 Support</h4>
+                                <h4>물류 컨설팅</h4>
                                 <p>
                                     will have to make sure the prototype looks finished by inserting text or photo.make
                                     sure the prototype looks finished by.
@@ -398,14 +434,15 @@
 <!-- End Service area -->
 
 <!-- our-skill-area start -->
+<!--
 <div class="our-skill-area fix hidden-sm">
     <div class="test-overly"></div>
     <div class="skill-bg area-padding-2">
         <div class="container">
-            <!-- section-heading end -->
+            &lt;!&ndash; section-heading end &ndash;&gt;
             <div class="row">
                 <div class="skill-text">
-                    <!-- single-skill start -->
+                    &lt;!&ndash; single-skill start &ndash;&gt;
                     <div class="col-xs-12 col-sm-3 col-md-3 text-center">
                         <div class="single-skill">
                             <div class="progress-circular">
@@ -416,8 +453,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- single-skill end -->
-                    <!-- single-skill start -->
+                    &lt;!&ndash; single-skill end &ndash;&gt;
+                    &lt;!&ndash; single-skill start &ndash;&gt;
                     <div class="col-xs-12 col-sm-3 col-md-3 text-center">
                         <div class="single-skill">
                             <div class="progress-circular">
@@ -428,8 +465,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- single-skill end -->
-                    <!-- single-skill start -->
+                    &lt;!&ndash; single-skill end &ndash;&gt;
+                    &lt;!&ndash; single-skill start &ndash;&gt;
                     <div class="col-xs-12 col-sm-3 col-md-3 text-center">
                         <div class="single-skill">
                             <div class="progress-circular">
@@ -440,8 +477,8 @@
                             </div>
                         </div>
                     </div>
-                    <!-- single-skill end -->
-                    <!-- single-skill start -->
+                    &lt;!&ndash; single-skill end &ndash;&gt;
+                    &lt;!&ndash; single-skill start &ndash;&gt;
                     <div class="col-xs-12 col-sm-3 col-md-3 text-center">
                         <div class="single-skill">
                             <div class="progress-circular">
@@ -452,15 +489,17 @@
                             </div>
                         </div>
                     </div>
-                    <!-- single-skill end -->
+                    &lt;!&ndash; single-skill end &ndash;&gt;
                 </div>
             </div>
         </div>
     </div>
 </div>
+-->
 <!-- our-skill-area end -->
 
 <!-- Faq area start -->
+<!--
 <div class="faq-area area-padding">
     <div class="container">
         <div class="row">
@@ -474,7 +513,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="faq-details">
                     <div class="panel-group" id="accordion">
-                        <!-- Panel Default -->
+                        &lt;!&ndash; Panel Default &ndash;&gt;
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="check-title">
@@ -493,8 +532,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Panel Default -->
-                        <!-- Panel Default -->
+                        &lt;!&ndash; End Panel Default &ndash;&gt;
+                        &lt;!&ndash; Panel Default &ndash;&gt;
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="check-title">
@@ -513,8 +552,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Panel Default -->
-                        <!-- Panel Default -->
+                        &lt;!&ndash; End Panel Default &ndash;&gt;
+                        &lt;!&ndash; Panel Default &ndash;&gt;
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="check-title">
@@ -533,8 +572,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Panel Default -->
-                        <!-- Panel Default -->
+                        &lt;!&ndash; End Panel Default &ndash;&gt;
+                        &lt;!&ndash; Panel Default &ndash;&gt;
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="check-title">
@@ -553,13 +592,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Panel Default -->
+                        &lt;!&ndash; End Panel Default &ndash;&gt;
                     </div>
                 </div>
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="tab-menu">
-                    <!-- Nav tabs -->
+                    &lt;!&ndash; Nav tabs &ndash;&gt;
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="active">
                             <a href="#p-view-1" role="tab" data-toggle="tab">Project</a>
@@ -623,42 +662,14 @@
                 </div>
             </div>
         </div>
-        <!-- end Row -->
+        &lt;!&ndash; end Row &ndash;&gt;
     </div>
 </div>
+-->
 <!-- End Faq Area -->
 
-<!-- Start Wellcome Area -->
-<div class="wellcome-area">
-    <div class="well-bg">
-        <div class="test-overly"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <div class="wellcome-text">
-                        <div class="well-text text-center">
-                            <h2>Welcome To Our eBusiness</h2>
-                            <p>
-                                Busuness Lorem ipsum dolor sit amet, consectetur adipiscing elit.luctus est eget congue.
-                            </p>
-                            <div class="subs-feilds">
-                                <div class="suscribe-input">
-                                    <input type="email" class="email form-control width-80" id="sus_email"
-                                           placeholder="Email">
-                                    <button type="submit" id="sus_submit" class="add-btn width-20">Subscribe</button>
-                                    <div id="msg_Submit" class="h3 text-center hidden"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Wellcome Area -->
-
 <!-- Start team Area -->
+<!--
 <div id="team" class="our-team-area area-padding">
     <div class="container">
         <div class="row">
@@ -702,7 +713,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- End column -->
+                &lt;!&ndash; End column &ndash;&gt;
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <div class="single-team-member">
                         <div class="team-img">
@@ -735,7 +746,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- End column -->
+                &lt;!&ndash; End column &ndash;&gt;
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <div class="single-team-member">
                         <div class="team-img">
@@ -768,7 +779,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- End column -->
+                &lt;!&ndash; End column &ndash;&gt;
                 <div class="col-md-3 col-sm-3 col-xs-12">
                     <div class="single-team-member">
                         <div class="team-img">
@@ -801,11 +812,12 @@
                         </div>
                     </div>
                 </div>
-                <!-- End column -->
+                &lt;!&ndash; End column &ndash;&gt;
             </div>
         </div>
     </div>
 </div>
+-->
 <!-- End Team Area -->
 
 <!-- Start reviews Area -->
@@ -813,12 +825,12 @@
     <div class="work-us">
         <div class="work-left-text">
             <a href="#">
-                <img src="img/about/2.jpg" alt="">
+                <img src="img/services/night-container.jpg" alt="">
             </a>
         </div>
         <div class="work-right-text text-center">
-            <h2>working with us</h2>
-            <h5>Web Design, Ready Home, Construction and Co-operate Outstanding Buildings.</h5>
+            <h2>국제물류, 운송</h2>
+            <h5>밤낮없이 고객의 물류를 생각하는 카고 플랜의 서비스는 이렇게 특별합니다. </h5>
             <a href="#contact" class="ready-btn">Contact us</a>
         </div>
     </div>
@@ -826,12 +838,12 @@
 <!-- End reviews Area -->
 
 <!-- Start portfolio Area -->
-<div id="portfolio" class="portfolio-area area-padding fix">
+<div id="partners" class="portfolio-area area-padding fix">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="section-headline text-center">
-                    <h2>Our Portfolio</h2>
+                    <h2>Partners</h2>
                 </div>
             </div>
         </div>
@@ -966,6 +978,7 @@
 </div>
 <!-- awesome-portfolio end -->
 <!-- start pricing area -->
+<!--
 <div id="pricing" class="pricing-area area-padding">
     <div class="container">
         <div class="row">
@@ -1028,6 +1041,7 @@
         </div>
     </div>
 </div>
+-->
 <!-- End pricing table area -->
 <!-- Start Testimonials -->
 <div class="testimonials-area">
@@ -1044,11 +1058,9 @@
                             <div class="single-testi">
                                 <div class="testi-text">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar luctus est
-                                        eget congue.<br>consectetur adipiscing elit. Sed pulvinar luctus est eget
-                                        congue.
+                                        물류의 팁을 알려줍시다.물류의 팁을 알려줍시다.물류의 팁을 알려줍시다.물류의 팁을 알려줍시다.
                                     </p>
-                                    <h6>Boby</h6>
+                                    <h6>물류의 팁</h6>
                                 </div>
                             </div>
                             <!-- End single item -->
@@ -1060,17 +1072,6 @@
                                         congue.
                                     </p>
                                     <h6>Jhon</h6>
-                                </div>
-                            </div>
-                            <!-- End single item -->
-                            <div class="single-testi">
-                                <div class="testi-text">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed pulvinar luctus est
-                                        eget congue.<br>consectetur adipiscing elit. Sed pulvinar luctus est eget
-                                        congue.
-                                    </p>
-                                    <h6>Fleming</h6>
                                 </div>
                             </div>
                             <!-- End single item -->
@@ -1092,7 +1093,7 @@
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="section-headline text-center">
-                        <h2>Latest News</h2>
+                        <h2>News</h2>
                     </div>
                 </div>
             </div>
@@ -1106,27 +1107,30 @@
                             </a>
                         </div>
                         <div class="blog-meta">
-                <span class="comments-type">
-										<i class="fa fa-comment-o"></i>
-										<a href="#">13 comments</a>
-									</span>
+                            <!--
+                                            <span class="comments-type">
+                                                                    <i class="fa fa-comment-o"></i>
+                                                                    <a href="#">13 comments</a>
+                                                                </span>
+                            -->
                             <span class="date-type">
 										<i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
 									</span>
                         </div>
                         <div class="blog-text">
                             <h4>
-                                <a href="blog.html">Assumenda repud eum veniam</a>
+                                <a href="blog.html">CARGO PLAN = GRAND OPEN</a>
                             </h4>
                             <p>
-                                Lorem ipsum dolor sit amet conse adipis elit Assumenda repud eum veniam optio modi sit
-                                explicabo nisi magnam quibusdam.sit amet conse adipis elit Assumenda repud eum veniam
-                                optio modi sit explicabo nisi magnam quibusdam.
+                                2019년 1월 카고 플랜이 여러분과 함께합니다. 2019년 1월 카고 플랜이 여러분과 함께합니다. 2019년 1월 카고 플랜이 여러분과 함께합니다.
+                                2019년 1월 카고 플랜이 여러분과 함께합니다. 2019년 1월 카고 플랜이 여러분과 함께합니다.
                             </p>
                         </div>
-                        <span>
-									<a href="blog.html" class="ready-btn">Read more</a>
-								</span>
+                        <!--
+                                                <span>
+                                                            <a href="blog.html" class="ready-btn">Read more</a>
+                                                        </span>
+                        -->
                     </div>
                     <!-- Start single blog -->
                 </div>
@@ -1209,8 +1213,8 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
                 <div class="suscribe-text text-center">
-                    <h3>Welcome to our eBusiness company</h3>
-                    <a class="sus-btn" href="#">Get A quate</a>
+                    <h3>Welcome to = CARGO PLAN</h3>
+                    <a class="sus-btn" href="#">알아보기</a>
                 </div>
             </div>
         </div>
@@ -1236,10 +1240,8 @@
                         <div class="single-icon">
                             <i class="fa fa-mobile"></i>
                             <p>
-                                Phone: +82-2-6497-8300<br>
+                                Phone: +82-2-6497-8300, 8302<br>
                                 Fax: +82-2-6497-8301<br>
-                                <span>MON-FRI (9am-6pm)</span>
-                                Direct: +82-6497-8302
                                 Cell Phone: +82-10-3115-3442
                             </p>
                         </div>
@@ -1249,7 +1251,7 @@
                 <div class="col-md-4 col-sm-4 col-xs-12">
                     <div class="contact-icon text-center">
                         <div class="single-icon">
-                            <i class="fa fa-envelope-o"></i>
+                            <i class="fas fa-envelope"></i>
                             <p>
                                 Email: jhkim@cargoplan.co.kr<br>
                                 <span>Web: www.cargoplan.co.kr</span>
@@ -1263,9 +1265,8 @@
                         <div class="single-icon">
                             <i class="fa fa-map-marker"></i>
                             <p>
-                                Location: RM 516, 161-17, <br>
-                                MAGOKJUNGANG-R0,GANGSEO-GU<br>
-                                <span>SEOUL, 07788, KOREA</span>
+                                서울특별시 강서구 마곡중앙로 161-17, 516호<br>
+                                (마곡동, 보타닉파크타워I)
                             </p>
                         </div>
                     </div>
@@ -1280,10 +1281,6 @@
                     <!-- 1. 지도 노드 -->
                     <div id="daumRoughmapContainer1547970218621"
                          class="root_daum_roughmap root_daum_roughmap_landing"></div>
-                    <!--
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452"
-                                                width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
-                    -->
                     <!-- End Map -->
                 </div>
                 <!-- End Google Map -->
@@ -1347,22 +1344,24 @@
                                 카고플랜 주식회사 | 대표: 김주훈<br>
                                 대표번호: 02-6497-8300(평일 09:00-18:00)<br>
                                 팩스번호: 02-6497-8301 | jhkim@cargoplan.co.kr</p>
-                            <div class="footer-icons">
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-google"></i></a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <!--
+                                                        <div class="footer-icons">
+                                                            <ul>
+                                                                <li>
+                                                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#"><i class="fa fa-google"></i></a>
+                                                                </li>
+                                                                <li>
+                                                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                            -->
                         </div>
                     </div>
                 </div>
@@ -1376,27 +1375,11 @@
                                 <p><span>Tel:</span> +82-2-6497-8300, 8302</p>
                                 <p><span>Fax:</span> +82-2-6497-8301</p>
                                 <p><span>Email:</span> jhkim@cargoplan.co.kr</p>
-                                <p><span>Working Hours:</span> 9am-6pm</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- end single footer -->
-                <div class="col-md-4 col-sm-4 col-xs-12">
-                    <div class="footer-content">
-                        <div class="footer-head">
-                            <h4>Instagram</h4>
-                            <div class="flicker-img">
-                                <a href="#"><img src="img/portfolio/1.jpg" alt=""></a>
-                                <a href="#"><img src="img/portfolio/2.jpg" alt=""></a>
-                                <a href="#"><img src="img/portfolio/3.jpg" alt=""></a>
-                                <a href="#"><img src="img/portfolio/4.jpg" alt=""></a>
-                                <a href="#"><img src="img/portfolio/5.jpg" alt=""></a>
-                                <a href="#"><img src="img/portfolio/6.jpg" alt=""></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -1442,6 +1425,7 @@
 <script src="contactform/contactform.js"></script>
 
 <script src="js/main.js"></script>
+
 <!--
     2. 설치 스크립트
     * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
@@ -1449,15 +1433,6 @@
 <script charset="UTF-8" class="daum_roughmap_loader_script"
         src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
 
-<!-- 3. 실행 스크립트 -->
-<script charset="UTF-8">
-    new daum.roughmap.Lander({
-        "timestamp": "1547970218621",
-        "key": "rue8",
-        "mapWidth": "555",
-        "mapHeight": "355"
-    }).render();
-</script>
 </body>
 
 </html>

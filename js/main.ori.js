@@ -8,7 +8,6 @@
         var pre_loader = $('#preloader');
         pre_loader.fadeOut('slow', function () {
             $(this).remove();
-            daumMapInit();
         });
     });
 
@@ -211,20 +210,3 @@
     }
 
 })(jQuery);
-
-<!-- 3. 실행 스크립트 -->
-function daumMapInit() {
-    $('#daumRoughmapContainer1547970218621').empty();
-    var mapWidth = $('#daumRoughmapContainer1547970218621').parents('div').width();
-    new daum.roughmap.Lander({
-        "timestamp": "1547970218621",
-        "key": "rue8",
-        "mapWidth": mapWidth,
-        "mapHeight": "355"
-    }).render();
-}
-
-$(window).resize(function () {
-    daumMapInit();
-});
-

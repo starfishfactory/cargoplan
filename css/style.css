@@ -138,7 +138,6 @@ body {
     background: #fff none repeat scroll 0 0;
     color: #444;
     font-family: 'Open Sans', sans-serif;
-    /*font-family: 'Noto Serif KR', serif;*/
     font-size: 14px;
     text-align: left;
     overflow-x: hidden;
@@ -231,10 +230,11 @@ div#preloader {
     margin-bottom: 70px;
     position: relative;
     text-transform: capitalize;
+    color: #211C48;
 }
 
 .section-headline h2::after {
-    border: 1px solid #333;
+    border: 1px solid #DD4C38;
     bottom: -20px;
     content: "";
     left: 0;
@@ -730,7 +730,7 @@ div#preloader {
 ----------------------------------------*/
 
 .wellcome-area {
-    background: rgba(248, 248, 248, 0.8) url("../img/background/bg1.jpg");
+    background: rgba(248, 248, 248, 0.8) url("../img/background/building.jpg");
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -1006,7 +1006,7 @@ div#preloader {
 /*--------------------------------*/
 
 .reviews-area {
-    background: url(../img/background/bg1.jpg);
+    background: url(../img/background/calendar.jpg);
     overflow: hidden;
     background-repeat: no-repeat;
     background-size: cover;
