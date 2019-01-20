@@ -1286,33 +1286,33 @@
                 <!-- Start  contact -->
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="form contact-form">
-                        <div id="sendmessage">Your message has been sent. Thank you!</div>
+                        <div id="sendmessage">견적 문의 메일이 발송 되었습니다. 빠른 답변 드리겠습니다.</div>
                         <div id="errormessage"></div>
-                        <form action="" method="post" role="form" class="contactForm">
+                        <form name="mailForm" action="" method="post" role="form" class="contactForm">
                             <div class="form-group">
-                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                                       data-rule="minlen:4" data-msg="Please enter at least 4 chars"/>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="이름"
+                                       data-rule="minlen:4" data-msg="4 글자 이상 입력해주세요."/>
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" id="email"
-                                       placeholder="Your Email" data-rule="email"
-                                       data-msg="Please enter a valid email"/>
+                                       placeholder="이메일" data-rule="email"
+                                       data-msg="올바른 이메일을 입력해주세요."/>
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" name="subject" id="subject"
-                                       placeholder="Subject" data-rule="minlen:4"
-                                       data-msg="Please enter at least 8 chars of subject"/>
+                                       placeholder="제목" data-rule="minlen:4"
+                                       data-msg="8 자 이상 입력해주세요."/>
                                 <div class="validation"></div>
                             </div>
                             <div class="form-group">
                                 <textarea class="form-control" name="message" rows="5" data-rule="required"
-                                          data-msg="Please write something for us" placeholder="Message"></textarea>
+                                          data-msg="문의 내용을 입력해주세요." placeholder="문의 내용"></textarea>
                                 <div class="validation"></div>
                             </div>
                             <div class="text-center">
-                                <button type="submit">Send Message</button>
+                                <button type="submit">견적 문의</button>
                             </div>
                         </form>
                     </div>

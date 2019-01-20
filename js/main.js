@@ -228,3 +228,18 @@ $(window).resize(function () {
     daumMapInit();
 });
 
+$('#sus_submit').on('click', function () {
+    $('form[name="mailForm"] input[name="email"]').val($('#sus_email').val()).focus();
+});
+
+$('form[name="mailForm"]').on('submit', function (e) {
+    e.preventDefault();
+    var $form = $(this);
+    var $a = $('<a>111111111</a>').attr({
+        href: 'mailto:' + $form.find('input[name="email"]').val() +
+            '?subject=' + $form.find('input[name="subject"]').val() +
+            '&body=' + $form.find('textarea[name="message"]').val(),
+    });
+    $('body').append($a);
+    $a.trigger('click');
+});
