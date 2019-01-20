@@ -1236,8 +1236,11 @@
                         <div class="single-icon">
                             <i class="fa fa-mobile"></i>
                             <p>
-                                Call: +1 5589 55488 55<br>
-                                <span>Monday-Friday (9am-5pm)</span>
+                                Phone: +82-2-6497-8300<br>
+                                Fax: +82-2-6497-8301<br>
+                                <span>MON-FRI (9am-6pm)</span>
+                                Direct: +82-6497-8302
+                                Cell Phone: +82-10-3115-3442
                             </p>
                         </div>
                     </div>
@@ -1248,8 +1251,8 @@
                         <div class="single-icon">
                             <i class="fa fa-envelope-o"></i>
                             <p>
-                                Email: info@example.com<br>
-                                <span>Web: www.example.com</span>
+                                Email: jhkim@cargoplan.co.kr<br>
+                                <span>Web: www.cargoplan.co.kr</span>
                             </p>
                         </div>
                     </div>
@@ -1260,8 +1263,9 @@
                         <div class="single-icon">
                             <i class="fa fa-map-marker"></i>
                             <p>
-                                Location: A108 Adam Street<br>
-                                <span>NY 535022, USA</span>
+                                Location: RM 516, 161-17, <br>
+                                MAGOKJUNGANG-R0,GANGSEO-GU<br>
+                                <span>SEOUL, 07788, KOREA</span>
                             </p>
                         </div>
                     </div>
@@ -1272,8 +1276,14 @@
                 <!-- Start Google Map -->
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <!-- Start Map -->
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452"
-                            width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    <!-- * Daum 지도 - 지도퍼가기 -->
+                    <!-- 1. 지도 노드 -->
+                    <div id="daumRoughmapContainer1547970218621"
+                         class="root_daum_roughmap root_daum_roughmap_landing"></div>
+                    <!--
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22864.11283411948!2d-73.96468908098944!3d40.630720240038435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbg!4v1540447494452"
+                                                width="100%" height="380" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    -->
                     <!-- End Map -->
                 </div>
                 <!-- End Google Map -->
@@ -1331,8 +1341,12 @@
                                 <img src="img/footer-logo.png" alt="" title="">
                             </div>
 
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-                                laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                            <p>사업자 등록번호: 491-86-01378<br>
+                                서울특별시 강서구 마곡중앙로 161-17, 516호<br>
+                                (마곡동, 보타닉파크타워I<br>
+                                카고플랜 주식회사 | 대표: 김주훈<br>
+                                대표번호: 02-6497-8300(평일 09:00-18:00)<br>
+                                팩스번호: 02-6497-8301 | jhkim@cargoplan.co.kr</p>
                             <div class="footer-icons">
                                 <ul>
                                     <li>
@@ -1429,6 +1443,22 @@
 <script src="contactform/contactform.js"></script>
 
 <script src="js/main.js"></script>
+<!--
+    2. 설치 스크립트
+    * 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+-->
+<script charset="UTF-8" class="daum_roughmap_loader_script"
+        src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+<!-- 3. 실행 스크립트 -->
+<script charset="UTF-8">
+    new daum.roughmap.Lander({
+        "timestamp": "1547970218621",
+        "key": "rue8",
+        "mapWidth": "555",
+        "mapHeight": "355"
+    }).render();
+</script>
 </body>
 
 </html>

@@ -137,8 +137,8 @@ a:active, a:hover {
 body {
     background: #fff none repeat scroll 0 0;
     color: #444;
-    /*font-family: 'Open Sans', sans-serif;*/
-    font-family: 'Noto Serif KR', serif;
+    font-family: 'Open Sans', sans-serif;
+    /*font-family: 'Noto Serif KR', serif;*/
     font-size: 14px;
     text-align: left;
     overflow-x: hidden;
@@ -267,6 +267,7 @@ div#preloader {
     height: auto;
     background: rgba(255, 255, 255, 0.60);
     z-index: 9;
+    font-family: fontawesome;
 }
 
 .navbar-header a.navbar-brand {
