@@ -5,3 +5,36 @@
 .orange {
     color: #DD4C38;
 }
+
+.padding-no-bottom {
+    padding-bottom: 0px;
+}
+
+.title-description {
+    font-size: 10px;
+    padding-bottom: 10px;
+}
+
+.subs-fields {
+    width: 30%;
+}
+
+.subscribe-input button {
+    width: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .subscribe-input button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .subscribe-input button {
+        width: 100%;
+    }
+}
+
+.single-services > h4.font-18 {
+    font-size: 18px;
+}

@@ -52,11 +52,11 @@
         padding: 10px 16px;
     }
 
-    .suscribe-input input {
+    .subscribe-input input {
         width: 60%;
     }
 
-    .suscribe-input button {
+    .subscribe-input button {
         width: 40%;
     }
 
@@ -253,15 +253,15 @@
         padding: 70px 0px;
     }
 
-    .subs-feilds {
+    .subs-fields {
         width: 100%;
     }
 
-    .suscribe-input input {
+    .subscribe-input input {
         width: 60%;
     }
 
-    .suscribe-input button {
+    .subscribe-input button {
         font-size: 15px;
         padding: 14px 10px;
         width: 40%;

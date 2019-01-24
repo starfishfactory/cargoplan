@@ -763,7 +763,7 @@ div#preloader {
     margin-bottom: 0;
 }
 
-.subs-feilds {
+.subs-fields {
     border: 1px solid #fff;
     display: inline-block;
     height: 52px;
@@ -773,7 +773,7 @@ div#preloader {
     overflow: hidden;
 }
 
-.suscribe-input input {
+.subscribe-input input {
     background: transparent none repeat scroll 0 0;
     border: medium none;
     color: #fff;
@@ -785,7 +785,7 @@ div#preloader {
     height: 50px;
 }
 
-.suscribe-input button {
+.subscribe-input button {
     background: #DD4C38 none repeat scroll 0 0;
     border: medium none;
     border-radius: 0 20px 20px 0;
@@ -797,7 +797,7 @@ div#preloader {
     width: 30%;
 }
 
-.suscribe-input button:hover {
+.subscribe-input button:hover {
     background: #fff none repeat scroll 0 0;
     color: #DD4C38;
 }
