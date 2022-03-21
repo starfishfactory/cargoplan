@@ -214,11 +214,11 @@
 
 <!-- 3. 실행 스크립트 -->
 function daumMapInit() {
-    $('#daumRoughmapContainer1547970218621').empty();
-    var mapWidth = $('#daumRoughmapContainer1547970218621').parents('div').width();
+    $('#daumRoughmapContainer1647828095243').empty();
+    var mapWidth = $('#daumRoughmapContainer1647828095243').parents('div').width();
     new daum.roughmap.Lander({
-        "timestamp": "1547970218621",
-        "key": "rue8",
+        "timestamp": "1647828095243",
+        "key": "29its",
         "mapWidth": mapWidth,
         "mapHeight": "355"
     }).render();
