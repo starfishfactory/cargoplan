@@ -214,11 +214,11 @@
 
 <!-- 3. 실행 스크립트 -->
 function daumMapInit() {
-    $('#daumRoughmapContainer1547970218621').empty();
-    var mapWidth = $('#daumRoughmapContainer1547970218621').parents('div').width();
+    $('#daumRoughmapContainer1647828095243').empty();
+    let mapWidth = $('#daumRoughmapContainer1647828095243').parents('div').width();
     new daum.roughmap.Lander({
-        "timestamp": "1547970218621",
-        "key": "rue8",
+        "timestamp": "1647828095243",
+        "key": "29its",
         "mapWidth": mapWidth,
         "mapHeight": "355"
     }).render();
@@ -228,18 +228,17 @@ $(window).resize(function () {
     daumMapInit();
 });
 
-$('#sus_submit').on('click', function () {
-    $('form[name="mailForm"] input[name="email"]').val($('#sus_email').val()).focus();
-});
+setRandomClass();
+setInterval(function () {
+    setRandomClass();
+}, 3000);//number of milliseconds (2000 = 2 seconds)
 
-$('form[name="mailForm"]').on('submit', function (e) {
-    e.preventDefault();
-    var $form = $(this);
-    var $a = $('<a>111111111</a>').attr({
-        href: 'mailto:' + $form.find('input[name="email"]').val() +
-            '?subject=' + $form.find('input[name="subject"]').val() +
-            '&body=' + $form.find('textarea[name="message"]').val(),
-    });
-    $('body').append($a);
-    $a.trigger('click');
-});
+function setRandomClass() {
+    let items = $("svg").find("circle");
+    let number = items.length;
+    items.removeClass("banaan");
+    for (let i = 0; i < 2; i++) {
+        let random = Math.floor((Math.random() * number));
+        items.eq(random).addClass("banaan");
+    }
+}
