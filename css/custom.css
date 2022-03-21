@@ -38,3 +38,119 @@
 .single-services > h4.font-18 {
     font-size: 18px;
 }
+
+
+svg {
+    width: 80%;
+}
+
+/* circle, */
+
+.banaan {
+    fill: #DD4C38;
+    transition: all 1.5s ease;
+    box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.2);
+    animation: pulse 1.5s infinite cubic-bezier(0.66, 0, 0, 10);
+}
+
+@keyframes pulse {
+    to {
+        r: 5;
+    }
+}
+
+.marquee {
+    font-family: 'Raleway', sans-serif;
+    padding: 0.5em 0;
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.marquee i {
+    color: #DD4C38;
+}
+
+.marquee p:hover {
+    -moz-animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.marquee p:after {
+    content: "";
+    white-space: nowrap;
+    padding-right: 50px;
+}
+
+.marquee p {
+    margin: 0;
+    padding-left: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    -webkit-animation-name: marquee;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-duration: 180s;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-name: marquee;
+    -moz-animation-timing-function: linear;
+    -moz-animation-duration: 180s;
+    -moz-animation-iteration-count: infinite;
+    -ms-animation-name: marquee;
+    -ms-animation-timing-function: linear;
+    -ms-animation-duration: 180s;
+    -ms-animation-iteration-count: infinite;
+    -o-animation-name: marquee;
+    -o-animation-timing-function: linear;
+    -o-animation-duration: 180s;
+    -o-animation-iteration-count: infinite;
+    animation-name: marquee;
+    animation-timing-function: linear;
+    animation-duration: 180s;
+    animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes marquee {
+    from {
+        -webkit-transform: translate(0%);
+    }
+    99%, to {
+        -webkit-transform: translate(-100%);
+    }
+}
+
+@-moz-keyframes marquee {
+    from {
+        -moz-transform: translate(0%);
+    }
+    99%, to {
+        -moz-transform: translate(-100%);
+    }
+}
+
+@-ms-keyframes marquee {
+    from {
+        -ms-transform: translate(0%);
+    }
+    99%, to {
+        -ms-transform: translate(-100%);
+    }
+}
+
+@-o-keyframes marquee {
+    from {
+        -o-transform: translate(0%);
+    }
+    99%, to {
+        -o-transform: translate(-100%);
+    }
+}
+
+@keyframes marquee {
+    from {
+        transform: translate(0%);
+    }
+    99%, to {
+        transform: translate(-100%);
+    }
+}
