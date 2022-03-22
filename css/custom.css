@@ -44,8 +44,6 @@ svg {
     width: 80%;
 }
 
-/* circle, */
-
 .banaan {
     fill: #DD4C38;
     transition: all 1.5s ease;
@@ -114,7 +112,7 @@ svg {
     from {
         -webkit-transform: translate(0%);
     }
-    99%, to {
+    99%, 100% {
         -webkit-transform: translate(-100%);
     }
 }
