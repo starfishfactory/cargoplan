@@ -154,3 +154,7 @@ svg {
         transform: translate(-100%);
     }
 }
+
+.header-area {
+    font-family: 'Raleway', sans-serif;
+}
