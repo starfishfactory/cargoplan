@@ -1,0 +1,57 @@
+# 자동 라벨링 규칙
+
+# 파일 경로 기반 라벨링
+frontend:
+  - src/app/**/*
+  - src/components/**/*
+  - src/hooks/**/*
+  - '*.tsx'
+  - '*.css'
+
+backend:
+  - src/api/**/*
+  - src/services/**/*
+  - prisma/**/*
+  - '*.sql'
+
+database:
+  - prisma/**/*
+  - migrations/**/*
+  - '*.sql'
+
+devops:
+  - .github/**/*
+  - docker/**/*
+  - Dockerfile
+  - docker-compose.yml
+  - '*.yml'
+  - '*.yaml'
+
+documentation:
+  - '*.md'
+  - docs/**/*
+  - README.md
+
+test:
+  - '**/*.test.ts'
+  - '**/*.test.tsx'
+  - '**/*.spec.ts'
+  - '**/*.spec.tsx'
+  - tests/**/*
+  - __tests__/**/*
+
+# 이슈 내용 기반 라벨링
+bug:
+  - '/(bug|버그|에러|error|오류)/i'
+
+enhancement:
+  - '/(feature|기능|추가|enhancement|개선)/i'
+
+documentation:
+  - '/(docs|문서|documentation)/i'
+
+priority:critical:
+  - '/(critical|긴급|urgent|asap)/i'
+
+priority:high:
+  - '/(high priority|높은 우선순위|중요)/i'
