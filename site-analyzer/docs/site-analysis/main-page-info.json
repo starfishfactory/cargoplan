@@ -1,40 +1,46 @@
 {
-  "timestamp": "2025-10-27T13:58:39.946Z",
+  "timestamp": "2025-10-27T14:24:26.476Z",
   "hero": {
     "exists": false,
     "ctaButtons": []
   },
   "contentSections": [],
-  "features": [
-    {
-      "title": "North/South America",
-      "description": "지역별 운임 정보 필터링"
-    },
-    {
-      "title": "Asia/Oceania",
-      "description": "지역별 운임 정보 필터링"
-    },
-    {
-      "title": "Europe",
-      "description": "지역별 운임 정보 필터링"
-    },
-    {
-      "title": "Middle East/Africa",
-      "description": "지역별 운임 정보 필터링"
-    },
-    {
-      "title": "Search",
-      "description": "운임 검색 기능"
-    },
-    {
-      "title": "More View",
-      "description": "상세 정보 확인 (6개 항목)"
-    }
-  ],
+  "features": [],
   "testimonials": {
     "exists": false,
     "count": 0
   },
   "statistics": [],
-  "callToActions": []
+  "callToActions": [
+    {
+      "text": "North/South America",
+      "href": "",
+      "location": "MARKET PLACE (Filters)"
+    },
+    {
+      "text": "Asia/Oceania",
+      "href": "",
+      "location": "MARKET PLACE (Filters)"
+    },
+    {
+      "text": "Europe",
+      "href": "",
+      "location": "MARKET PLACE (Filters)"
+    },
+    {
+      "text": "Middle East/Africa",
+      "href": "",
+      "location": "MARKET PLACE (Filters)"
+    },
+    {
+      "text": "More View (6개)",
+      "href": "",
+      "location": "MARKET PLACE (Details)"
+    },
+    {
+      "text": "Select Container Type",
+      "href": "",
+      "location": "MARKET PLACE (Search Form)"
+    }
+  ]
 }

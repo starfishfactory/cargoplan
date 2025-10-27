@@ -1,18 +1,26 @@
 {
-  "timestamp": "2025-10-27T13:40:45.983Z",
+  "timestamp": "2025-10-27T14:24:20.443Z",
   "header": {
     "logo": {
       "exists": false
     },
-    "menuItems": [],
-    "searchBox": {
-      "exists": true,
-      "placeholder": "검색어를 입력하세요"
-    }
+    "menuItems": []
   },
   "footer": {
-    "companyInfo": {},
-    "footerLinks": [],
+    "companyInfo": {
+      "email": "surff@surff.krBusiness",
+      "phone": "425-81-0261917"
+    },
+    "footerLinks": [
+      {
+        "text": "Terms of Service",
+        "href": "/en/termUse"
+      },
+      {
+        "text": "Privacy Policy",
+        "href": "/en/termPersonal"
+      }
+    ],
     "socialMedia": []
   },
   "mobile": {

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-10-27T14:11:07.330Z",
+  "timestamp": "2025-10-27T14:25:06.570Z",
   "url": "https://www.surff.kr/en/quote?pageNo=1",
   "title": "",
   "description": "",
@@ -9,43 +9,22 @@
     "exists": false
   },
   "quoteHistory": {
-    "count": 4,
-    "items": [
-      {
-        "pol": "KRPUS",
-        "pod": "SIKOP"
-      },
-      {
-        "pol": "KRPUS",
-        "pod": "LKCMB"
-      },
-      {
-        "pol": "KRPUS",
-        "pod": "MXLZC"
-      },
-      {
-        "pol": "KRPUS",
-        "pod": "GUGUM"
-      }
-    ]
+    "count": 0,
+    "items": []
   },
-  "filters": [
-    {
-      "text": "Americas",
-      "type": "region"
-    },
-    {
-      "text": "Europe",
-      "type": "region"
-    },
-    {
-      "text": "Asia",
-      "type": "region"
-    }
-  ],
+  "filters": [],
   "pagination": {
-    "exists": false,
+    "exists": true,
     "currentPage": 1
   },
-  "features": []
+  "features": [
+    {
+      "name": "Pagination",
+      "description": "페이지별 견적 이력 탐색"
+    },
+    {
+      "name": "Port-based History",
+      "description": "POL/POD 항구 코드로 이력 표시"
+    }
+  ]
 }

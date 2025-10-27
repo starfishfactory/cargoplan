@@ -1,15 +1,19 @@
 {
-  "timestamp": "2025-10-27T14:16:33.657Z",
+  "timestamp": "2025-10-27T14:25:12.423Z",
   "url": "https://www.surff.kr/en/blog",
   "title": "",
   "description": "",
   "mainHeading": "",
-  "categories": [
-    {
-      "name": "Subscribe",
-      "type": "category"
-    }
-  ],
+  "categories": [],
   "posts": [],
-  "features": []
+  "features": [
+    {
+      "name": "Image Thumbnails",
+      "description": "각 포스트에 이미지 썸네일"
+    },
+    {
+      "name": "Logistics Insights",
+      "description": "최신 물류 트렌드 및 인사이트 제공"
+    }
+  ]
 }

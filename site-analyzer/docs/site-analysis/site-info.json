@@ -1,6 +1,6 @@
 {
   "url": "https://www.surff.kr/",
-  "timestamp": "2025-10-27T13:36:23.905Z",
+  "timestamp": "2025-10-27T14:24:03.759Z",
   "title": "",
   "meta": {},
   "links": {
@@ -82,11 +82,9 @@
     }
   ],
   "scripts": [
-    "https://www.googletagmanager.com/gtag/js?id=G-Z3BSZCXKNG&cx=c&gtm=4e5am0",
     "/_next/static/chunks/fd9d1056-9baca00455ac6dd8.js",
     "/_next/static/chunks/2117-f56cc4c50bc7f47a.js",
     "/_next/static/chunks/main-app-898b80f61466de24.js",
-    "/_next/static/chunks/4609-dadc12575b7723c6.js",
     "/_next/static/chunks/polyfills-42372ed130431b0a.js",
     "//wcs.naver.net/wcslog.js",
     "https://ssl.pstatic.net/melona/libs/gfp-nac-module/synchronizer.js",
