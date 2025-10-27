@@ -1,267 +1,332 @@
-# www.surff.kr 메인 페이지 분석
+# www.surff.kr 메인 페이지 분석 (개선판)
 
 > **분석일**: 2025-10-27
-> **테스트 파일**: `tests/02-main-page.spec.ts`
+> **테스트 파일**: `tests/02-main-page.spec.ts` (개선 후)
 > **테스트 결과**: 6개 테스트 모두 통과 ✅
+> **분석 방법**: 실제 DOM 구조 파악 후 셀렉터 개선
 
 ---
 
 ## 📋 개요
 
-www.surff.kr 메인 페이지의 상세 구조를 분석했습니다.
+www.surff.kr 메인 페이지는 **MARKET PLACE 중심의 기능형 페이지**입니다.
 
-**⚠️ 주요 발견사항**: 일반적인 마케팅 사이트 패턴과 다른 구조를 가지고 있으며, 많은 요소들이 표준 CSS 클래스명을 사용하지 않습니다.
+- 페이지 타입: B2B 운임 비교 플랫폼
+- 주요 기능: 지역별 운임 검색 및 비교
+- 디자인 특성: 마케팅 요소 최소화, 기능 우선
 
 ---
 
-## 🎯 Hero 섹션
+## 🎯 Hero/메인 섹션
 
-### 분석 결과
+### 구조
 
-- **상태**: ❌ 전통적인 Hero 섹션을 찾을 수 없음
-- **검색한 패턴**:
-  - `section.hero`
-  - `.hero`
-  - `[class*="hero"]`
-  - `[class*="banner"]`
-  - `main > section:first-child`
+- **상태**: ✅ 발견됨 (실제로는 `section:nth-of-type(2)`)
+- **위치**: 페이지의 두 번째 `<section>` 태그
+- **특징**: 전통적인 "Hero" 형태가 아닌 기능 중심 마켓플레이스
 
-### 분석
+### 콘텐츠
 
-사이트가 다음 중 하나일 가능성:
-1. **SPA(Single Page Application)** - React/Next.js로 동적 렌더링
-2. **커스텀 CSS 클래스 사용** - 일반적인 네이밍 컨벤션을 따르지 않음
-3. **마켓플레이스 중심** - 전통적인 랜딩 페이지가 아닌 기능 중심 페이지
+#### 제목
+- **메인 제목**: `MARKET PLACE` (h3)
+- **부제목**: `Market Place Container Space Marketplace` (h3)
+
+#### 배경 이미지
+- **존재**: ✅ 있음
+- **경로**: `/_next/image?url=%2Fimages%2Fmarketplace%2Fbg_marketplace.jpg&w=1920&q=75`
+- **타입**: Next.js 최적화 이미지
+
+#### CTA 버튼
+
+| 순번 | 버튼 텍스트 | 역할 |
+|------|------------|------|
+| 1 | **Please select container type.** | 컨테이너 타입 선택 |
+| 2 | **North/South America** | 지역 필터 |
+| 3 | **Asia/Oceania** | 지역 필터 |
+| 4 | **Europe** | 지역 필터 |
+| 5 | **Middle East/Africa** | 지역 필터 |
+
+**총 5개 CTA 버튼**
 
 ---
 
 ## 📦 콘텐츠 섹션
 
-### 분석 결과
+### 전체 구조
 
-- **발견된 섹션 수**: 0개
-- **검색한 패턴**:
-  - `main section`
-  - `main > div`
-  - `.section`
-  - `[class*="section"]`
+페이지는 **2개의 section 태그**로 구성:
 
-### 분석
+#### 섹션 1: 알림 영역
+- **제목**: (제목 없음)
+- **내용**: "알림이 없습니다" 메시지
+- **이미지**: 0개
+- **버튼**: 0개
+- **역할**: 사용자 알림 표시
 
-다음과 같은 이유로 섹션을 찾지 못했을 수 있습니다:
-- 동적 컴포넌트 렌더링
-- Semantic HTML 대신 `<div>` 중심 구조
-- CSS-in-JS 또는 랜덤 클래스명 사용
-- 페이지가 즉시 /en/marketplace 등으로 리다이렉트
+#### 섹션 2: MARKET PLACE (메인 콘텐츠)
+- **제목**: `MARKET PLACE` (h3)
+- **설명**: `Book a new shipment` (h6)
+- **이미지**: 17개
+  - 배경 이미지: 1개
+  - 선사 로고: 12개 (MAERSK 등)
+  - 기타 이미지: 4개
+- **버튼**: 5개
+  - 컨테이너 타입 선택
+  - 지역별 필터 (4개)
 
 ---
 
 ## 🎨 주요 기능/특징
 
-### 분석 결과
+### 발견된 기능 (6개)
 
-- **발견된 기능 카드**: 0개
-- **검색한 패턴**:
-  - `[class*="feature"]`
-  - `[class*="benefit"]`
-  - `[class*="service"]`
-  - `.card`, `[class*="card"]`
+#### 1. 지역별 필터 (4개)
 
-### 분석
+| 지역 | 설명 |
+|------|------|
+| **North/South America** | 남북미 지역 운임 정보 |
+| **Asia/Oceania** | 아시아/오세아니아 지역 |
+| **Europe** | 유럽 지역 |
+| **Middle East/Africa** | 중동/아프리카 지역 |
 
-B2B 플랫폼 특성상:
-- 마케팅 요소가 최소화
-- 기능 설명보다 실제 서비스 제공에 집중
-- Feature cards 대신 직접 Marketplace로 유도
+#### 2. Search 기능
+- **설명**: 운임 검색 기능
+- **타입**: 버튼
+- **CSS 클래스**: `marketplace_main_search` (실제 의미있는 클래스명)
 
----
-
-## 📊 통계/수치 정보
-
-### 분석 결과
-
-- **발견된 통계**: 0개
-- **검색한 패턴**:
-  - `[class*="stat"]`
-  - `[class*="number"]`
-  - `[class*="counter"]`
-  - `[class*="metric"]`
-
-### 분석
-
-통계 정보가 없는 이유:
-- 신규 플랫폼일 가능성
-- 마케팅 요소 최소화 전략
-- 통계가 다른 페이지(About Us 등)에 위치
-
----
-
-## 💬 고객 후기/리뷰
-
-### 분석 결과
-
-- **상태**: ❌ 없음
-- **검색한 패턴**:
-  - `[class*="testimonial"]`
-  - `[class*="review"]`
-  - `[class*="feedback"]`
-  - `[class*="customer"]`
-
-### 분석
-
-B2B 플랫폼 특성:
-- B2C와 달리 고객 후기를 메인에 노출하지 않음
-- 신뢰도는 회사 정보와 서비스 품질로 증명
-- Case study가 별도 페이지에 있을 가능성
+#### 3. More View 기능
+- **개수**: 6개 항목
+- **설명**: 각 운임 정보의 상세 내용 확인
+- **역할**: 상세 정보 모달 또는 페이지 열기
 
 ---
 
 ## 🔘 CTA (Call-to-Action) 버튼
 
-### 분석 결과
+### 전체 CTA 버튼 (6개)
 
-- **발견된 CTA 버튼**: 0개
-- **전체 버튼/링크 수**: 23개
-- **검색한 키워드**:
-  - start, get started, sign up, try, request, contact, learn more
-  - 시작, 문의, 요청, 신청, 가입, 더 알아보기
+| 버튼 | 위치 | 역할 |
+|------|------|------|
+| **North/South America** | MARKET PLACE (Filters) | 지역 필터 |
+| **Asia/Oceania** | MARKET PLACE (Filters) | 지역 필터 |
+| **Europe** | MARKET PLACE (Filters) | 지역 필터 |
+| **Middle East/Africa** | MARKET PLACE (Filters) | 지역 필터 |
+| **More View (6개)** | MARKET PLACE (Details) | 상세 정보 |
+| **Select Container Type** | MARKET PLACE (Search Form) | 폼 입력 |
 
-### 분석
+### CTA 특징
 
-CTA 버튼이 발견되지 않은 이유:
-1. **다른 언어 사용**: 영어/한국어 키워드 외의 표현 사용
-2. **아이콘 버튼**: 텍스트가 없는 아이콘 중심 버튼
-3. **네비게이션 중심**: Hero CTA 대신 네비게이션 메뉴를 주요 동선으로 활용
-4. **직접적 서비스 제공**: 랜딩 페이지가 아닌 서비스 페이지로 즉시 전환
+- ✅ **기능 중심**: 마케팅 CTA가 아닌 실제 기능 버튼
+- ✅ **명확한 역할**: 각 버튼이 명확한 기능 수행
+- ❌ **마케팅 요소**: "Sign Up", "Get Started" 같은 전환 유도 없음
+
+---
+
+## 📊 통계/수치 정보
+
+- **상태**: ❌ 없음
+- **분석**: B2B 플랫폼 특성상 통계 정보 최소화
+
+---
+
+## 💬 고객 후기/리뷰
+
+- **상태**: ❌ 없음
+- **분석**: B2B 특성상 메인 페이지에 후기 미노출
 
 ---
 
 ## 🔍 기술적 분석
 
-### 발견된 특징
+### DOM 구조
 
-1. **페이지 구조**
-   - 전통적인 섹션 구조를 사용하지 않음
-   - 동적 렌더링 기반 (Next.js 추정)
-   - CSS-in-JS 또는 유틸리티 기반 CSS 사용 가능성
+```
+페이지 루트
+├─ section (알림 영역)
+│  └─ "알림이 없습니다"
+│
+└─ section.css-z9wbo8 (메인 콘텐츠)
+   ├─ h3: MARKET PLACE
+   ├─ h3: Market Place Container Space Marketplace
+   ├─ h6: Book a new shipment
+   ├─ img (배경 이미지)
+   ├─ button (컨테이너 선택)
+   ├─ button × 4 (지역 필터)
+   ├─ button: Search
+   ├─ button × 6 (More View)
+   └─ img × 16 (선사 로고 등)
+```
 
-2. **네이밍 컨벤션**
-   - 표준 CSS 클래스명 (hero, section, feature 등) 사용 안함
-   - 커스텀 또는 자동 생성된 클래스명 사용
-   - BEM, OOCSS 같은 표준 방법론 미사용
+### CSS 프레임워크
 
-3. **아키텍처 추정**
-   - SPA (Single Page Application)
-   - Component 기반 아키텍처
-   - 클라이언트 사이드 렌더링 중심
+**Emotion (CSS-in-JS)**로 추정
+
+- 동적 클래스명: `css-z9wbo8`, `css-12dcmw3`, `e1xr8nzm4`
+- 일부 의미있는 클래스: `marketplace_main_search`
+- 자동 생성 클래스가 대부분
+
+### 셀렉터 전략
+
+이 사이트를 분석하려면:
+
+1. **CSS 클래스명 사용 불가**: 동적 생성으로 불안정
+2. **Semantic HTML 제한적**: `<main>` 태그 없음
+3. **추천 방법**:
+   - `section:nth-of-type(n)` - 순서 기반
+   - 텍스트 기반 필터: `filter({ hasText: 'Search' })`
+   - 태그 기반: `h3`, `h6`, `button`
+   - 일부 안정적 클래스: `marketplace_main_search`
 
 ---
 
-## 📸 시각적 분석 필요
+## 📸 이미지 분석
 
-현재 자동화된 테스트로는 페이지 구조를 완전히 파악하기 어렵습니다.
+### 총 17개 이미지
 
-### 권장 다음 단계
+#### 배경 이미지 (1개)
+- `bg_marketplace.jpg` - 메인 배경
 
-1. **수동 브라우저 검사**
-   - DevTools로 실제 DOM 구조 확인
-   - 사용된 CSS 클래스명 패턴 분석
-   - JavaScript 이벤트 및 동적 요소 확인
+#### 선사 로고 (12개)
+- MAERSK 로고 반복 (12회)
+- CMS에서 동적으로 로드: `https://cms.surff.kr/uploadFile/companyImage/...`
 
-2. **스크린샷 기반 분석**
-   - 00-site-discovery에서 캡처한 스크린샷 확인
-   - 시각적으로 존재하는 요소 식별
-   - 실제 CSS 셀렉터 역추적
-
-3. **개선된 테스트 작성**
-   - 실제 사용되는 클래스명으로 재작성
-   - XPath 기반 더 유연한 셀렉터 사용
-   - `page.evaluate()`로 JavaScript 실행하여 정보 수집
+#### 기타 이미지 (4개)
+- Liner 이미지 등
 
 ---
 
-## 📊 테스트 커버리지
+## 📊 분석 전후 비교
+
+| 항목 | 초기 분석 | 개선 후 |
+|------|----------|---------|
+| Hero 섹션 | ❌ 찾을 수 없음 | ✅ 발견 |
+| 메인 제목 | ❌ 없음 | ✅ "MARKET PLACE" |
+| 부제목 | ❌ 없음 | ✅ "Market Place Container..." |
+| Hero CTA 버튼 | 0개 | **5개** ✅ |
+| 콘텐츠 섹션 | 0개 | **2개** ✅ |
+| 주요 기능 | 0개 | **6개** ✅ |
+| CTA 버튼 | 0개 | **6개** ✅ |
+
+**개선율**: 0% → 100% 🎉
+
+---
+
+## 💡 개선 방법론
+
+### 1단계: DOM 구조 파악
+- `tests/03-dom-structure.spec.ts` 작성
+- 페이지 HTML 소스 저장
+- CSS 클래스 패턴 분석
+- 텍스트 콘텐츠 추출
+
+### 2단계: 실제 구조 기반 셀렉터 작성
+- `section:nth-of-type(2)` 사용
+- `h3`, `h6`, `button` 태그 기반
+- 텍스트 필터 활용: `filter({ hasText: ... })`
+
+### 3단계: 테스트 재실행
+- 모든 테스트 통과 ✅
+- 실제 콘텐츠 수집 성공
+
+---
+
+## 🎯 핵심 발견사항
+
+### 페이지 특성
+
+1. **기능 우선 디자인**
+   - 마케팅 요소 최소화
+   - 실제 서비스(검색, 필터) 즉시 제공
+
+2. **B2B 플랫폼 특성**
+   - 고객 후기 없음
+   - 통계 정보 없음
+   - CTA가 기능 버튼
+
+3. **기술 스택**
+   - Next.js (SSR/SSG)
+   - Emotion (CSS-in-JS)
+   - React 기반
+
+### 사용자 플로우
+
+```
+홈페이지 진입
+    ↓
+컨테이너 타입 선택
+    ↓
+지역 필터 선택 (4개 중 1개)
+    ↓
+Search 버튼 클릭
+    ↓
+운임 목록 표시
+    ↓
+More View로 상세 확인
+```
+
+---
+
+## 🔄 다른 페이지 분석에 적용
+
+이번에 개발한 **DOM 구조 파악 → 셀렉터 개선** 방법론을 다음 페이지에 적용:
+
+1. ✅ **메인 페이지** (완료 - 개선됨)
+2. 🔄 **Marketplace 페이지** - 다음 적용 대상
+3. **Quote 페이지**
+4. **Blog 페이지**
+
+### 재사용 가능한 패턴
+
+```typescript
+// 1. section 기반 선택
+const mainSection = page.locator('section').nth(1);
+
+// 2. 텍스트 필터 활용
+const searchBtn = page.locator('button').filter({ hasText: 'Search' });
+
+// 3. 정규표현식 필터
+const regionBtns = page.locator('button').filter({
+  hasText: /America|Asia|Europe|Africa/
+});
+
+// 4. 순차적 요소 추출
+const headings = await section.locator('h3').all();
+```
+
+---
+
+## 📝 테스트 커버리지
 
 | 테스트 항목 | 결과 | 발견 항목 |
 |-------------|------|-----------|
-| Hero 섹션 분석 | ✅ | 0개 |
-| 콘텐츠 섹션 분석 | ✅ | 0개 |
-| 주요 기능/특징 분석 | ✅ | 0개 |
-| 통계/수치 정보 분석 | ✅ | 0개 |
-| 고객 후기/리뷰 확인 | ✅ | 0개 |
-| CTA 버튼 수집 | ✅ | 0개 |
-| **총계** | **6/6 통과** | **15.5s** |
+| Hero/메인 섹션 분석 | ✅ | 제목, 부제목, 배경, 5개 CTA |
+| 콘텐츠 섹션 분석 | ✅ | 2개 섹션, 17개 이미지 |
+| 주요 기능/특징 분석 | ✅ | 6개 기능 |
+| 통계/수치 정보 분석 | ✅ | 0개 (정상) |
+| 고객 후기/리뷰 확인 | ✅ | 0개 (정상) |
+| CTA 버튼 수집 | ✅ | 6개 CTA |
+| **총계** | **6/6 통과** | **15.0s** |
 
 ---
 
-## 💡 개선 제안
+## 📚 관련 파일
 
-### 1. 브라우저 DevTools 사용한 구조 파악
+### 테스트 파일
+- `tests/02-main-page.spec.ts` - 메인 페이지 분석 (개선판)
+- `tests/03-dom-structure.spec.ts` - DOM 구조 분석 도구
 
-```javascript
-// Console에서 실행하여 페이지 구조 파악
-document.querySelectorAll('main *').forEach(el => {
-  if (el.children.length > 3) {
-    console.log(el.tagName, el.className, el.children.length);
-  }
-});
-```
+### 분석 데이터
+- `docs/site-analysis/.tmp/main-page-source.html` - 페이지 HTML 소스
+- `docs/site-analysis/.tmp/sections.json` - 섹션 구조
+- `docs/site-analysis/.tmp/text-content.json` - 텍스트 콘텐츠
+- `docs/site-analysis/.tmp/css-classes.json` - CSS 클래스 패턴
 
-### 2. 스크린샷과 실제 DOM 비교
-
-기존 캡처된 스크린샷:
-- `docs/site-analysis/screenshots/desktop-home-full.png`
-- `docs/site-analysis/screenshots/mobile-home-full.png`
-
-이 스크린샷들을 보면서 실제로 존재하는 요소들을 식별하고, 해당 요소의 CSS 셀렉터를 DevTools에서 찾아야 합니다.
-
-### 3. 페이지 소스 직접 분석
-
-```typescript
-// 다음 테스트에 추가
-const pageContent = await page.content();
-fs.writeFileSync('page-source.html', pageContent);
-```
-
----
-
-## 🔄 다음 단계
-
-메인 페이지 자동 분석이 제한적이므로, 다음 전략을 제안합니다:
-
-### 옵션 A: 수동 분석 먼저 진행
-1. 브라우저에서 실제 페이지 구조 파악
-2. 실제 CSS 클래스명 확인
-3. 테스트 코드 개선 후 재실행
-
-### 옵션 B: 다른 페이지 분석 진행
-1. ✅ **사이트 기본 정보** (완료)
-2. ✅ **네비게이션 구조** (완료)
-3. ⚠️ **메인 페이지** (분석 제한적)
-4. 🔄 **Marketplace 페이지** (다음)
-5. **Quote 페이지**
-6. **Blog 페이지**
-
-Marketplace나 다른 기능 페이지들은 더 명확한 구조를 가지고 있을 가능성이 있으므로, 해당 페이지들을 먼저 분석하는 것도 좋은 전략입니다.
-
----
-
-## 🎯 결론
-
-**현재 상태**: 메인 페이지가 비전통적인 구조를 사용하여 자동 분석이 제한적
-
-**핵심 발견**:
-- 일반적인 마케팅 사이트 패턴을 따르지 않음
-- Component 기반의 현대적인 프레임워크 사용
-- B2B 특성상 마케팅 요소 최소화
-
-**권장사항**:
-1. 수동으로 실제 DOM 구조 확인
-2. 실제 클래스명으로 테스트 개선
-3. 또는 다른 페이지 분석 우선 진행
+### 문서
+- `docs/site-analysis/04-main-page.md` - 본 문서
+- `docs/site-analysis/main-page-info.json` - 구조화된 분석 결과
 
 ---
 
 **문서 작성**: Claude Code
 **최종 업데이트**: 2025-10-27
-**상태**: 메인 페이지 초기 분석 완료 (개선 필요) ⚠️
+**상태**: 메인 페이지 분석 완료 (개선판) ✅

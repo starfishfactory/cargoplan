@@ -72,80 +72,68 @@ test.describe('메인 페이지 상세 분석', () => {
     };
   });
 
-  test('Hero 섹션 분석', async ({ page }) => {
+  test('Hero/메인 섹션 분석', async ({ page }) => {
     await page.goto('https://www.surff.kr/');
     await page.waitForLoadState('networkidle');
 
-    // Hero 섹션 찾기 (일반적인 패턴)
-    const heroSelectors = [
-      'section.hero',
-      '.hero',
-      'section:first-of-type',
-      '[class*="hero"]',
-      '[class*="banner"]',
-      'main > section:first-child',
-    ];
+    // 실제 DOM 구조 기반: section:nth-of-type(2)가 메인 콘텐츠
+    const hero = page.locator('section').nth(1); // 0-based, so 1 = 두 번째
 
-    for (const selector of heroSelectors) {
-      const hero = page.locator(selector).first();
-      if (await hero.count() > 0) {
-        pageInfo.hero.exists = true;
+    if (await hero.count() > 0) {
+      pageInfo.hero.exists = true;
+      console.log('✅ 메인 섹션 발견');
 
-        // Hero 제목 찾기
-        const titleSelectors = ['h1', 'h2', '.title', '[class*="title"]'];
-        for (const titleSelector of titleSelectors) {
-          const title = hero.locator(titleSelector).first();
-          if (await title.count() > 0 && await title.isVisible()) {
-            pageInfo.hero.title = (await title.textContent())?.trim();
-            console.log('📝 Hero 제목:', pageInfo.hero.title);
-            break;
-          }
+      // 제목 찾기 (h3 태그 사용)
+      const h3Elements = hero.locator('h3');
+      const h3Count = await h3Elements.count();
+
+      if (h3Count > 0) {
+        pageInfo.hero.title = (await h3Elements.first().textContent())?.trim();
+        console.log('📝 메인 제목:', pageInfo.hero.title);
+
+        if (h3Count > 1) {
+          pageInfo.hero.subtitle = (await h3Elements.nth(1).textContent())?.trim();
+          console.log('📝 부제목:', pageInfo.hero.subtitle);
         }
-
-        // Hero 부제목 찾기
-        const subtitleSelectors = ['h2', 'h3', 'p', '.subtitle', '[class*="subtitle"]'];
-        for (const subtitleSelector of subtitleSelectors) {
-          const subtitle = hero.locator(subtitleSelector).first();
-          if (
-            await subtitle.count() > 0 &&
-            await subtitle.isVisible() &&
-            pageInfo.hero.title !== (await subtitle.textContent())?.trim()
-          ) {
-            pageInfo.hero.subtitle = (await subtitle.textContent())?.trim();
-            console.log('📝 Hero 부제목:', pageInfo.hero.subtitle);
-            break;
-          }
-        }
-
-        // CTA 버튼 찾기
-        const ctaButtons = hero.locator('a, button').filter({ hasText: /.+/ });
-        const ctaCount = await ctaButtons.count();
-
-        for (let i = 0; i < ctaCount; i++) {
-          const button = ctaButtons.nth(i);
-          if (await button.isVisible()) {
-            const text = (await button.textContent())?.trim() || '';
-            const href = (await button.getAttribute('href')) || '';
-
-            // 버튼 텍스트가 있고, 너무 긴 텍스트가 아니면 (일반적인 CTA는 짧음)
-            if (text && text.length < 50) {
-              const isPrimary = (await button.getAttribute('class'))?.includes('primary') || false;
-              pageInfo.hero.ctaButtons.push({ text, href, isPrimary });
-            }
-          }
-        }
-
-        console.log(`🔘 Hero CTA 버튼: ${pageInfo.hero.ctaButtons.length}개`);
-        pageInfo.hero.ctaButtons.forEach((btn, idx) => {
-          console.log(`  ${idx + 1}. ${btn.text} → ${btn.href}`);
-        });
-
-        break;
       }
-    }
 
-    if (!pageInfo.hero.exists) {
-      console.log('⚠️  Hero 섹션을 찾을 수 없습니다.');
+      // 배경 이미지 확인
+      const bgImage = hero.locator('img').first();
+      if (await bgImage.count() > 0) {
+        pageInfo.hero.backgroundImage = await bgImage.getAttribute('src') || undefined;
+        console.log('🖼️  배경 이미지:', pageInfo.hero.backgroundImage);
+      }
+
+      // CTA 버튼 찾기 (Search, 지역별 버튼 등)
+      const buttons = hero.locator('button');
+      const buttonCount = await buttons.count();
+
+      console.log(`🔘 발견된 버튼: ${buttonCount}개`);
+
+      for (let i = 0; i < buttonCount; i++) {
+        const button = buttons.nth(i);
+        if (await button.isVisible()) {
+          const text = (await button.textContent())?.trim() || '';
+          const className = (await button.getAttribute('class')) || '';
+
+          // 유의미한 버튼만 수집 (Close, × 등 제외)
+          if (text && text.length < 50 && text !== '×' && text !== 'Close') {
+            const isPrimary = className.includes('marketplace_main_search');
+            pageInfo.hero.ctaButtons.push({
+              text,
+              href: '', // 버튼이므로 href 없음
+              isPrimary,
+            });
+          }
+        }
+      }
+
+      console.log(`🎯 주요 CTA 버튼: ${pageInfo.hero.ctaButtons.length}개`);
+      pageInfo.hero.ctaButtons.forEach((btn, idx) => {
+        console.log(`  ${idx + 1}. ${btn.text}${btn.isPrimary ? ' (Primary)' : ''}`);
+      });
+    } else {
+      console.log('⚠️  메인 섹션을 찾을 수 없습니다.');
     }
   });
 
@@ -153,70 +141,66 @@ test.describe('메인 페이지 상세 분석', () => {
     await page.goto('https://www.surff.kr/');
     await page.waitForLoadState('networkidle');
 
-    // 메인 콘텐츠 영역의 섹션들 찾기
-    const mainSelectors = ['main section', 'main > div', '.section', '[class*="section"]'];
+    // 실제 구조: section이 2개만 존재
+    const sections = page.locator('section');
+    const sectionCount = await sections.count();
 
-    for (const selector of mainSelectors) {
-      const sections = page.locator(selector);
-      const sectionCount = await sections.count();
+    console.log(`\n📦 전체 섹션 수: ${sectionCount}개`);
 
-      if (sectionCount > 0) {
-        console.log(`\n📦 발견된 섹션 수: ${sectionCount}개 (${selector})`);
+    for (let i = 0; i < sectionCount; i++) {
+      const section = sections.nth(i);
 
-        for (let i = 0; i < Math.min(sectionCount, 10); i++) {
-          // 최대 10개까지만
-          const section = sections.nth(i);
+      if (await section.isVisible()) {
+        // 섹션 제목 찾기
+        const titleElement = section.locator('h2, h3, h4').first();
+        const title =
+          (await titleElement.count()) > 0
+            ? (await titleElement.textContent())?.trim() || `섹션 ${i + 1}`
+            : `섹션 ${i + 1}`;
 
-          if (await section.isVisible()) {
-            // 섹션 제목 찾기
-            const titleElement = section.locator('h1, h2, h3, h4').first();
-            const title = await titleElement.count() > 0
-              ? (await titleElement.textContent())?.trim() || `섹션 ${i + 1}`
-              : `섹션 ${i + 1}`;
+        // 설명 텍스트 찾기
+        const h6Element = section.locator('h6').first();
+        const description =
+          (await h6Element.count()) > 0 ? (await h6Element.textContent())?.trim() : undefined;
 
-            // 설명 텍스트 찾기
-            const descElement = section.locator('p').first();
-            const description = await descElement.count() > 0
-              ? (await descElement.textContent())?.trim()
-              : undefined;
+        // 이미지 확인
+        const images = section.locator('img');
+        const imageCount = await images.count();
 
-            // 이미지 확인
-            const images = section.locator('img');
-            const imageCount = await images.count();
+        // 버튼 찾기
+        const buttons = section.locator('button');
+        const buttonList: Array<{ text: string; href: string }> = [];
 
-            // 버튼 찾기
-            const buttons = section.locator('a, button').filter({ hasText: /.+/ });
-            const buttonList: Array<{ text: string; href: string }> = [];
-
-            const buttonCount = await buttons.count();
-            for (let j = 0; j < Math.min(buttonCount, 5); j++) {
-              const button = buttons.nth(j);
-              if (await button.isVisible()) {
-                const text = (await button.textContent())?.trim() || '';
-                const href = (await button.getAttribute('href')) || '';
-                if (text && text.length < 50) {
-                  buttonList.push({ text, href });
-                }
-              }
+        const buttonCount = await buttons.count();
+        for (let j = 0; j < buttonCount; j++) {
+          const button = buttons.nth(j);
+          if (await button.isVisible()) {
+            const text = (await button.textContent())?.trim() || '';
+            // 유의미한 버튼만
+            if (text && text.length < 50 && text !== '×' && text !== 'Close') {
+              buttonList.push({ text, href: '' });
             }
-
-            pageInfo.contentSections.push({
-              title,
-              description: description?.substring(0, 100), // 첫 100자만
-              hasImage: imageCount > 0,
-              imageCount,
-              hasButton: buttonList.length > 0,
-              buttons: buttonList,
-            });
-
-            console.log(`\n  📋 ${title}`);
-            if (description) console.log(`     설명: ${description.substring(0, 50)}...`);
-            console.log(`     이미지: ${imageCount}개`);
-            console.log(`     버튼: ${buttonList.length}개`);
           }
         }
 
-        break;
+        pageInfo.contentSections.push({
+          title,
+          description: description?.substring(0, 100),
+          hasImage: imageCount > 0,
+          imageCount,
+          hasButton: buttonList.length > 0,
+          buttons: buttonList,
+        });
+
+        console.log(`\n  📋 섹션 ${i + 1}: ${title}`);
+        if (description) console.log(`     설명: ${description.substring(0, 50)}...`);
+        console.log(`     이미지: ${imageCount}개`);
+        console.log(`     버튼: ${buttonList.length}개`);
+        if (buttonList.length > 0) {
+          buttonList.slice(0, 3).forEach((btn) => {
+            console.log(`       - ${btn.text}`);
+          });
+        }
       }
     }
 
@@ -227,53 +211,54 @@ test.describe('메인 페이지 상세 분석', () => {
     await page.goto('https://www.surff.kr/');
     await page.waitForLoadState('networkidle');
 
-    // Feature 카드나 아이콘 섹션 찾기
-    const featureSelectors = [
-      '[class*="feature"]',
-      '[class*="benefit"]',
-      '[class*="service"]',
-      '.card',
-      '[class*="card"]',
-    ];
+    // 지역별 필터 버튼들을 주요 기능으로 분석
+    const regionButtons = page.locator('button').filter({
+      hasText: /America|Asia|Europe|Africa/,
+    });
+    const regionCount = await regionButtons.count();
 
-    for (const selector of featureSelectors) {
-      const features = page.locator(selector);
-      const count = await features.count();
+    console.log(`\n🌍 지역별 필터 기능: ${regionCount}개`);
 
-      if (count > 0 && count < 20) {
-        // 너무 많으면 다른 요소일 가능성
-        console.log(`\n🎯 발견된 기능 카드: ${count}개`);
+    for (let i = 0; i < regionCount; i++) {
+      const button = regionButtons.nth(i);
+      const text = (await button.textContent())?.trim();
 
-        for (let i = 0; i < Math.min(count, 6); i++) {
-          const feature = features.nth(i);
+      if (text) {
+        pageInfo.features.push({
+          title: text,
+          description: '지역별 운임 정보 필터링',
+          icon: undefined,
+        });
 
-          if (await feature.isVisible()) {
-            const title = await feature.locator('h3, h4, h5, strong, b').first().textContent();
-            const description = await feature.locator('p, span').first().textContent();
-            const icon = await feature.locator('img, svg, i').first().getAttribute('src');
-
-            if (title) {
-              pageInfo.features.push({
-                title: title.trim(),
-                description: description?.trim().substring(0, 100) || '',
-                icon: icon || undefined,
-              });
-
-              console.log(`  ${i + 1}. ${title.trim()}`);
-              if (description) {
-                console.log(`     ${description.trim().substring(0, 50)}...`);
-              }
-            }
-          }
-        }
-
-        break;
+        console.log(`  ${i + 1}. ${text}`);
       }
     }
 
-    if (pageInfo.features.length === 0) {
-      console.log('ℹ️  주요 기능 카드를 찾을 수 없습니다.');
+    // Search 기능
+    const searchButton = page.locator('button').filter({ hasText: 'Search' }).first();
+    if ((await searchButton.count()) > 0) {
+      pageInfo.features.push({
+        title: 'Search',
+        description: '운임 검색 기능',
+        icon: undefined,
+      });
+      console.log(`  ${regionCount + 1}. Search (운임 검색)`);
     }
+
+    // More View 버튼 (상세 정보 확인 기능)
+    const moreViewButtons = page.locator('button').filter({ hasText: 'More View' });
+    const moreViewCount = await moreViewButtons.count();
+
+    if (moreViewCount > 0) {
+      pageInfo.features.push({
+        title: 'More View',
+        description: `상세 정보 확인 (${moreViewCount}개 항목)`,
+        icon: undefined,
+      });
+      console.log(`  ${regionCount + 2}. More View (${moreViewCount}개 항목)`);
+    }
+
+    console.log(`\n✅ 총 ${pageInfo.features.length}개 주요 기능 발견`);
   });
 
   test('통계/수치 정보 분석', async ({ page }) => {
@@ -365,57 +350,64 @@ test.describe('메인 페이지 상세 분석', () => {
     await page.goto('https://www.surff.kr/');
     await page.waitForLoadState('networkidle');
 
-    // 페이지 전체의 주요 버튼 찾기
-    const ctaKeywords = [
-      'start',
-      'get started',
-      'sign up',
-      'try',
-      'request',
-      'contact',
-      'learn more',
-      '시작',
-      '문의',
-      '요청',
-      '신청',
-      '가입',
-      '더 알아보기',
-    ];
+    console.log('\n🎯 주요 CTA 버튼 수집:\n');
 
-    const buttons = page.locator('a, button').filter({ hasText: /.+/ });
-    const count = await buttons.count();
+    // 1. Search 버튼 (Primary CTA)
+    const searchButton = page.locator('button').filter({ hasText: 'Search' }).first();
+    if ((await searchButton.count()) > 0 && (await searchButton.isVisible())) {
+      pageInfo.callToActions.push({
+        text: 'Search',
+        href: '',
+        location: 'MARKET PLACE (Hero)',
+      });
+      console.log('  ✅ Search (Primary)');
+    }
 
-    console.log(`\n🔘 전체 버튼/링크 수: ${count}개`);
-    console.log('🎯 주요 CTA 버튼:');
+    // 2. 지역별 필터 버튼들
+    const regionButtons = page.locator('button').filter({
+      hasText: /America|Asia|Europe|Africa/,
+    });
+    const regionCount = await regionButtons.count();
 
-    for (let i = 0; i < count; i++) {
-      const button = buttons.nth(i);
-
+    for (let i = 0; i < regionCount; i++) {
+      const button = regionButtons.nth(i);
       if (await button.isVisible()) {
-        const text = (await button.textContent())?.trim().toLowerCase() || '';
-        const href = (await button.getAttribute('href')) || '';
-
-        // CTA 키워드가 포함되어 있는지 확인
-        const isCTA = ctaKeywords.some((keyword) => text.includes(keyword.toLowerCase()));
-
-        if (isCTA && text.length < 50) {
-          // 위치 정보 얻기 (섹션 추정)
-          const parentSection = button.locator('xpath=ancestor::section[1]');
-          const location =
-            (await parentSection.count()) > 0
-              ? await parentSection.locator('h1, h2, h3').first().textContent()
-              : 'main';
-
-          pageInfo.callToActions.push({
-            text: text,
-            href,
-            location: location?.trim() || 'main',
-          });
-
-          console.log(`  • ${text} → ${href}`);
-          console.log(`    위치: ${location?.trim() || 'main'}`);
-        }
+        const text = (await button.textContent())?.trim() || '';
+        pageInfo.callToActions.push({
+          text,
+          href: '',
+          location: 'MARKET PLACE (Filters)',
+        });
+        console.log(`  ✅ ${text} (Filter)`);
       }
+    }
+
+    // 3. More View 버튼들
+    const moreViewButtons = page.locator('button').filter({ hasText: 'More View' });
+    const moreViewCount = await moreViewButtons.count();
+
+    if (moreViewCount > 0) {
+      // 대표로 하나만 추가
+      pageInfo.callToActions.push({
+        text: `More View (${moreViewCount}개)`,
+        href: '',
+        location: 'MARKET PLACE (Details)',
+      });
+      console.log(`  ✅ More View (${moreViewCount}개 항목)`);
+    }
+
+    // 4. 컨테이너 타입 선택 버튼
+    const containerButton = page
+      .locator('button')
+      .filter({ hasText: 'Please select container type' })
+      .first();
+    if ((await containerButton.count()) > 0 && (await containerButton.isVisible())) {
+      pageInfo.callToActions.push({
+        text: 'Select Container Type',
+        href: '',
+        location: 'MARKET PLACE (Search Form)',
+      });
+      console.log('  ✅ Select Container Type (Form)');
     }
 
     console.log(`\n✅ 총 ${pageInfo.callToActions.length}개 CTA 버튼 발견`);

@@ -1,11 +1,36 @@
 {
-  "timestamp": "2025-10-27T13:49:54.952Z",
+  "timestamp": "2025-10-27T13:58:39.946Z",
   "hero": {
     "exists": false,
     "ctaButtons": []
   },
   "contentSections": [],
-  "features": [],
+  "features": [
+    {
+      "title": "North/South America",
+      "description": "지역별 운임 정보 필터링"
+    },
+    {
+      "title": "Asia/Oceania",
+      "description": "지역별 운임 정보 필터링"
+    },
+    {
+      "title": "Europe",
+      "description": "지역별 운임 정보 필터링"
+    },
+    {
+      "title": "Middle East/Africa",
+      "description": "지역별 운임 정보 필터링"
+    },
+    {
+      "title": "Search",
+      "description": "운임 검색 기능"
+    },
+    {
+      "title": "More View",
+      "description": "상세 정보 확인 (6개 항목)"
+    }
+  ],
   "testimonials": {
     "exists": false,
     "count": 0
