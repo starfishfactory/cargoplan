@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-10-27T13:40:45.983Z",
+  "header": {
+    "logo": {
+      "exists": false
+    },
+    "menuItems": [],
+    "searchBox": {
+      "exists": true,
+      "placeholder": "검색어를 입력하세요"
+    }
+  },
+  "footer": {
+    "companyInfo": {},
+    "footerLinks": [],
+    "socialMedia": []
+  },
+  "mobile": {
+    "hamburgerMenu": false,
+    "mobileMenuWorks": false
+  }
+}
