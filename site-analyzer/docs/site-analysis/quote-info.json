@@ -1,0 +1,51 @@
+{
+  "timestamp": "2025-10-27T14:11:07.330Z",
+  "url": "https://www.surff.kr/en/quote?pageNo=1",
+  "title": "",
+  "description": "",
+  "mainHeading": "",
+  "subHeading": "",
+  "requestButton": {
+    "exists": false
+  },
+  "quoteHistory": {
+    "count": 4,
+    "items": [
+      {
+        "pol": "KRPUS",
+        "pod": "SIKOP"
+      },
+      {
+        "pol": "KRPUS",
+        "pod": "LKCMB"
+      },
+      {
+        "pol": "KRPUS",
+        "pod": "MXLZC"
+      },
+      {
+        "pol": "KRPUS",
+        "pod": "GUGUM"
+      }
+    ]
+  },
+  "filters": [
+    {
+      "text": "Americas",
+      "type": "region"
+    },
+    {
+      "text": "Europe",
+      "type": "region"
+    },
+    {
+      "text": "Asia",
+      "type": "region"
+    }
+  ],
+  "pagination": {
+    "exists": false,
+    "currentPage": 1
+  },
+  "features": []
+}
