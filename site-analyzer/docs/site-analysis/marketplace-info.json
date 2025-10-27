@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-10-27T14:05:03.969Z",
+  "url": "https://www.surff.kr/en/marketplace",
+  "title": "",
+  "description": "",
+  "searchForm": {
+    "polInput": {
+      "exists": false
+    },
+    "podInput": {
+      "exists": false
+    },
+    "containerType": {
+      "exists": false
+    },
+    "searchButton": {
+      "exists": false
+    }
+  },
+  "filters": [],
+  "results": {
+    "displayType": "unknown",
+    "count": 0,
+    "hasPagination": false
+  },
+  "shippingCompanies": [
+    {
+      "name": "MAERSK",
+      "logo": "/_next/image?url=https%3A%2F%2Fcms.surff.kr%2FuploadFile%2FcompanyImage%2FMFH8YMhh.png&w=375&q=75"
+    }
+  ],
+  "features": [
+    {
+      "name": "Freight Rate Search",
+      "description": "출발지(POL)와 도착지(POD)를 입력하여 운임 검색"
+    },
+    {
+      "name": "Detailed Information",
+      "description": "More View 버튼으로 상세 정보 확인"
+    }
+  ]
+}
