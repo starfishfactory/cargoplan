@@ -1,0 +1,60 @@
+{
+  "analyzedAt": "2025-10-27T14:40:38.131Z",
+  "url": "https://www.surff.kr/en/marketplace",
+  "issues": [
+    {
+      "type": "low-contrast",
+      "severity": "moderate",
+      "description": "11 elements may have insufficient color contrast (WCAG AA requires 4.5:1)"
+    }
+  ],
+  "summary": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 1,
+    "minor": 0
+  },
+  "checks": {
+    "images": {
+      "total": 0,
+      "withAlt": 0,
+      "withoutAlt": 0
+    },
+    "headings": {
+      "total": 0,
+      "structure": [],
+      "hasH1": false,
+      "multipleH1": false
+    },
+    "forms": {
+      "total": 0,
+      "withLabels": 0,
+      "withoutLabels": 0
+    },
+    "links": {
+      "total": 0,
+      "withText": 0,
+      "emptyLinks": 0
+    },
+    "buttons": {
+      "total": 0,
+      "withText": 0,
+      "emptyButtons": 0
+    },
+    "colorContrast": {
+      "checked": 20,
+      "lowContrast": 11
+    },
+    "landmarks": {
+      "hasMain": false,
+      "hasNav": false,
+      "hasHeader": false,
+      "hasFooter": false
+    },
+    "aria": {
+      "ariaLabels": 17,
+      "ariaDescriptions": 0,
+      "ariaHidden": 1
+    }
+  }
+}

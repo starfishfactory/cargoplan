@@ -1,0 +1,42 @@
+{
+  "analyzedAt": "2025-10-27T14:40:59.453Z",
+  "url": "https://www.surff.kr/en/marketplace",
+  "performance": {
+    "loadTime": 0,
+    "domContentLoaded": 0,
+    "resources": {
+      "total": 0,
+      "scripts": 0,
+      "stylesheets": 0,
+      "images": 0,
+      "fonts": 0,
+      "other": 0
+    },
+    "totalSize": 0,
+    "requests": 0
+  },
+  "seo": {
+    "title": "",
+    "titleLength": 0,
+    "descriptionLength": 0,
+    "hasRobotsMeta": false,
+    "hasViewportMeta": false,
+    "openGraph": {},
+    "twitter": {},
+    "structuredData": [],
+    "headings": {
+      "h1Count": 0,
+      "h2Count": 0,
+      "h3Count": 0
+    },
+    "images": {
+      "total": 18,
+      "withAlt": 18,
+      "optimized": 0
+    },
+    "links": {
+      "internal": 8,
+      "external": 3
+    }
+  }
+}
