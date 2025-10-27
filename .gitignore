@@ -1,20 +1,17 @@
 *.iml
 .idea/
 
-# Node.js
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-package-lock.json
+# site-analyzer 관련
+site-analyzer/node_modules/
+site-analyzer/npm-debug.log*
+site-analyzer/yarn-debug.log*
+site-analyzer/yarn-error.log*
+site-analyzer/package-lock.json
+site-analyzer/test-results/
+site-analyzer/playwright-report/
+site-analyzer/playwright/.cache/
+site-analyzer/docs/site-analysis/.tmp/
 
-# Playwright
-test-results/
-playwright-report/
-playwright/.cache/
-
-# 문서 생성 중간 파일
-docs/site-analysis/.tmp/
-
-# 스크린샷 (용량이 큰 경우 선택적으로 제외)
-# docs/site-analysis/screenshots/
+# OS
+.DS_Store
+Thumbs.db
