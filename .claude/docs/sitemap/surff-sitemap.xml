@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   surff.kr XML Sitemap
-  Generated: 2026-02-04
+  Generated: 2026-02-05
   Standard: sitemaps.org protocol v0.9
 
   Note: 블로그 상세 페이지(/blog/detail/{slug})는 동적으로 생성되므로
@@ -18,7 +18,7 @@
   <!-- 홈 -->
   <url>
     <loc>https://surff.kr/</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -26,31 +26,63 @@
   <!-- 마켓 플레이스 - 운임비교 및 예약 -->
   <url>
     <loc>https://surff.kr/marketplace</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
+  </url>
+
+  <!-- 맞춤 견적 의뢰 (GNB 마켓 플레이스 서브메뉴) -->
+  <url>
+    <loc>https://surff.kr/quote</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- 데이터 센터 - 해상 운임 추이 -->
   <url>
     <loc>https://surff.kr/fare</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- 주요 지표 - 컨테이너선 운임지수 (GNB 데이터 센터 서브메뉴) -->
+  <url>
+    <loc>https://surff.kr/indices</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 수출입 물동량 조회 (GNB 데이터 센터 서브메뉴) -->
+  <url>
+    <loc>https://surff.kr/volume</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- 서비스 - 카고 트래킹 -->
   <url>
     <loc>https://surff.kr/tracking</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- 선박 입출항 알림 (GNB 서비스 서브메뉴) -->
+  <url>
+    <loc>https://surff.kr/vesselAlerts</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- 블로그 -->
   <url>
     <loc>https://surff.kr/blog</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -58,7 +90,7 @@
   <!-- 해운 데이터 맵 -->
   <url>
     <loc>https://surff.kr/trade-data</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -66,7 +98,7 @@
   <!-- 프리미엄 데이터 - 해상운임·무역 데이터 구독 -->
   <url>
     <loc>https://surff.kr/pricing</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
