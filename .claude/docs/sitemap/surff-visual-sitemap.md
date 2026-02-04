@@ -92,48 +92,77 @@ surff.kr
 
 ## 2. 페이지 연결 관계 (Mermaid)
 
-```mermaid
-graph TD
-    HOME["/ (홈)"]
+> 가독성을 위해 역할별 3개 다이어그램으로 분리하였습니다.
 
-    subgraph GNB["GNB 네비게이션"]
-        direction TB
+### 2-1. GNB 네비게이션 구조
+
+```mermaid
+graph LR
+    GNB["GNB"]
+
+    subgraph 마켓플레이스["마켓플레이스▼"]
         MP["/marketplace<br/>마켓 플레이스"]
         QUOTE["/quote<br/>맞춤 견적 의뢰"]
-        FARE["/fare<br/>해상 운임 조회"]
-        INDICES["/indices<br/>컨테이너선 운임지수"]
-        VOLUME["/volume<br/>수출입 물동량 조회"]
-        TRACK["/tracking<br/>카고 트랙킹"]
-        VESSEL["/vesselAlerts<br/>선박 입출항 알림"]
-        BLOG["/blog<br/>블로그"]
-        MY_FARE["내 운임 직접 올리기<br/>(CTA 버튼, new 뱃지)"]
     end
 
-    subgraph 유틸리티["유틸리티 메뉴"]
+    subgraph 데이터센터["데이터센터▼"]
+        FARE["/fare<br/>해상 운임 조회"]
         TD_PAGE["/trade-data<br/>해운 데이터 맵"]
+        INDICES["/indices<br/>컨테이너선 운임지수"]
+        VOLUME["/volume<br/>수출입 물동량 조회"]
+    end
+
+    subgraph 서비스["서비스▼"]
+        TRACK["/tracking<br/>카고 트랙킹"]
+        VESSEL["/vesselAlerts<br/>선박 입출항 알림"]
+    end
+
+    BLOG["/blog<br/>블로그"]
+    MY_FARE["내 운임 직접 올리기<br/>(CTA, new 뱃지)"]
+
+    subgraph 유틸리티["유틸리티 메뉴"]
+        TERMINAL["terminal.surff.kr<br/>해운 대시보드"]
         PRICING["/pricing<br/>프리미엄 데이터"]
         LOGIN["/login<br/>로그인/회원가입"]
     end
 
-    subgraph 외부서비스["외부 서비스"]
-        TERMINAL["terminal.surff.kr<br/>해운 대시보드 (SURFF Terminal)"]
-    end
+    GNB --> 마켓플레이스
+    GNB --> 데이터센터
+    GNB --> 서비스
+    GNB --> BLOG
+    GNB --> MY_FARE
+    GNB --> 유틸리티
 
-    subgraph 법적고지["법적 고지"]
-        TERM_USE["/termUse<br/>서비스 이용약관"]
-        TERM_PERSONAL["/termPersonal<br/>개인정보 처리방침"]
-    end
+    %% 스타일
+    style GNB fill:#1a73e8,color:#fff
+    style MP fill:#34a853,color:#fff
+    style QUOTE fill:#34a853,color:#fff
+    style FARE fill:#34a853,color:#fff
+    style TD_PAGE fill:#34a853,color:#fff
+    style INDICES fill:#34a853,color:#fff
+    style VOLUME fill:#34a853,color:#fff
+    style TRACK fill:#34a853,color:#fff
+    style VESSEL fill:#34a853,color:#fff
+    style BLOG fill:#fbbc04,color:#000
+    style MY_FARE fill:#ea4335,color:#fff
+    style TERMINAL fill:#ea4335,color:#fff
+    style PRICING fill:#34a853,color:#fff
+    style LOGIN fill:#9e9e9e,color:#fff
+```
 
-    subgraph 외부채널["외부 채널"]
-        NAVER["네이버 블로그"]
-        KAKAO_OPEN["카카오 오픈채팅"]
-        LINKEDIN["LinkedIn"]
-        KAKAO_CH["카카오 채널"]
-    end
+### 2-2. 홈페이지 CTA 연결
 
-    BLOG_DETAIL["/blog/detail/{slug}<br/>블로그 상세"]
+```mermaid
+graph LR
+    HOME["/ (홈)"]
 
-    %% 홈 → 서비스 CTA 연결
+    MP["/marketplace<br/>마켓 플레이스"]
+    FARE["/fare<br/>해상 운임 조회"]
+    TRACK["/tracking<br/>카고 트랙킹"]
+    TD_PAGE["/trade-data<br/>해운 데이터 맵"]
+    VESSEL["/vesselAlerts<br/>선박 입출항 알림"]
+    BLOG["/blog<br/>블로그"]
+
     HOME -->|"다양한 운임 구경하기"| MP
     HOME -->|"데이터 플랜 확인하기"| FARE
     HOME -->|"현재 화물의 위치 보러 가기"| TRACK
@@ -141,55 +170,59 @@ graph TD
     HOME -->|"선박 입출항 알림 바로가기"| VESSEL
     HOME -->|"SURFF Blog 섹션"| BLOG
 
-    %% GNB 드롭다운 서브메뉴 연결
-    MP ---|"서브메뉴"| QUOTE
-    FARE ---|"서브메뉴"| TD_PAGE
-    FARE ---|"서브메뉴"| INDICES
-    FARE ---|"서브메뉴"| VOLUME
-    TRACK ---|"서브메뉴"| VESSEL
+    %% 스타일
+    style HOME fill:#1a73e8,color:#fff
+    style MP fill:#34a853,color:#fff
+    style FARE fill:#34a853,color:#fff
+    style TRACK fill:#34a853,color:#fff
+    style TD_PAGE fill:#34a853,color:#fff
+    style VESSEL fill:#34a853,color:#fff
+    style BLOG fill:#fbbc04,color:#000
+```
 
-    %% GNB/Footer는 전 페이지 공통이나, 다이어그램에서는 HOME 기준으로만 연결을 표현합니다.
-    HOME --- GNB
+### 2-3. 크로스 링크 & Footer
 
-    %% 블로그 → 블로그 상세
+```mermaid
+graph LR
+    BLOG["/blog<br/>블로그"]
+    BLOG_DETAIL["/blog/detail/{slug}<br/>블로그 상세"]
+    MP["/marketplace<br/>마켓 플레이스"]
+    TD_PAGE["/trade-data<br/>해운 데이터 맵"]
+    FARE["/fare<br/>해상 운임 조회"]
+    KAKAO_CH["카카오 채널"]
+
     BLOG -->|"아티클 클릭"| BLOG_DETAIL
-
-    %% 블로그 CTA
     BLOG -->|"CTA 카드"| MP
     BLOG -->|"CTA 카드"| TD_PAGE
     BLOG -->|"CTA 카드"| FARE
     BLOG -->|"카카오 친구 추가"| KAKAO_CH
 
-    %% Footer 연결 (전 페이지 공통)
-    HOME -.->|"Footer"| TERM_USE
-    HOME -.->|"Footer"| TERM_PERSONAL
-    HOME -.->|"Footer"| NAVER
-    HOME -.->|"Footer"| KAKAO_OPEN
-    HOME -.->|"Footer"| LINKEDIN
+    FOOTER["Footer (전 페이지 공통)"]
+    TERM_USE["/termUse<br/>서비스 이용약관"]
+    TERM_PERSONAL["/termPersonal<br/>개인정보 처리방침"]
+    NAVER["네이버 블로그"]
+    KAKAO_OPEN["카카오 오픈채팅"]
+    LINKEDIN["LinkedIn"]
 
-    %% 유틸리티 메뉴 연결
-    HOME ---|"유틸리티 메뉴"| LOGIN
-    HOME ---|"유틸리티 메뉴"| TD_PAGE
-    HOME ---|"유틸리티 메뉴"| PRICING
-    HOME ---|"유틸리티 메뉴"| TERMINAL
+    FOOTER -.-> TERM_USE
+    FOOTER -.-> TERM_PERSONAL
+    FOOTER -.-> NAVER
+    FOOTER -.-> KAKAO_OPEN
+    FOOTER -.-> LINKEDIN
 
     %% 스타일
-    style HOME fill:#1a73e8,color:#fff
-    style MP fill:#34a853,color:#fff
-    style QUOTE fill:#34a853,color:#fff
-    style FARE fill:#34a853,color:#fff
-    style INDICES fill:#34a853,color:#fff
-    style VOLUME fill:#34a853,color:#fff
-    style TRACK fill:#34a853,color:#fff
-    style VESSEL fill:#34a853,color:#fff
     style BLOG fill:#fbbc04,color:#000
+    style BLOG_DETAIL fill:#fbbc04,color:#000
+    style MP fill:#34a853,color:#fff
     style TD_PAGE fill:#34a853,color:#fff
-    style LOGIN fill:#9e9e9e,color:#fff
+    style FARE fill:#34a853,color:#fff
+    style KAKAO_CH fill:#fee500,color:#000
+    style FOOTER fill:#616161,color:#fff
     style TERM_USE fill:#9e9e9e,color:#fff
     style TERM_PERSONAL fill:#9e9e9e,color:#fff
-    style PRICING fill:#34a853,color:#fff
-    style TERMINAL fill:#ea4335,color:#fff
-    style BLOG_DETAIL fill:#fbbc04,color:#000
+    style NAVER fill:#03c75a,color:#fff
+    style KAKAO_OPEN fill:#fee500,color:#000
+    style LINKEDIN fill:#0077b5,color:#fff
 ```
 
 ---
