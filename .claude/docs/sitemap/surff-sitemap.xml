@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  surff.kr XML Sitemap
+  Generated: 2026-02-05
+  Standard: sitemaps.org protocol v0.9
+
+  Note: 블로그 상세 페이지(/blog/detail/{slug})는 동적으로 생성되므로
+  별도의 동적 사이트맵 생성기를 통해 관리해야 합니다.
+  (예: Next.js의 generateSitemaps() 또는 서버사이드 동적 생성)
+
+  제외 페이지:
+  - /login (고유 메타 태그 없음, noindex 대상)
+  - /termUse (고유 메타 태그 없음, SEO 가치 낮음)
+  - /termPersonal (고유 메타 태그 없음, SEO 가치 낮음)
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- 홈 -->
+  <url>
+    <loc>https://surff.kr/</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- 마켓 플레이스 - 운임비교 및 예약 (title: 마켓 플레이스 - 운임비교 및 예약) -->
+  <url>
+    <loc>https://surff.kr/marketplace</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- 맞춤 견적 의뢰 (title: 서프컴퍼니 | 맞춤 견적 의뢰, GNB 마켓 플레이스 서브메뉴) -->
+  <url>
+    <loc>https://surff.kr/quote</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 해상 운임 조회 (title: 해상 운임 조회, GNB 데이터 센터 메인) -->
+  <url>
+    <loc>https://surff.kr/fare</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 컨테이너선 운임지수 (title: 컨테이너선 운임지수, GNB 데이터 센터 서브메뉴) -->
+  <url>
+    <loc>https://surff.kr/indices</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 수출입 물동량 조회 (GNB 데이터 센터 서브메뉴) -->
+  <url>
+    <loc>https://surff.kr/volume</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 카고 트랙킹 (title: 카고 트랙킹, GNB 서비스 메인) -->
+  <url>
+    <loc>https://surff.kr/tracking</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 선박 입출항 알림 (GNB 서비스 서브메뉴) -->
+  <url>
+    <loc>https://surff.kr/vesselAlerts</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 블로그 -->
+  <url>
+    <loc>https://surff.kr/blog</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 해운 데이터 맵 -->
+  <url>
+    <loc>https://surff.kr/trade-data</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- 프리미엄 데이터 (title: 서프컴퍼니 | 프리미엄 데이터) -->
+  <url>
+    <loc>https://surff.kr/pricing</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!--
+    외부 서브도메인 (surff.kr XML sitemap 범위 밖):
+    - https://terminal.surff.kr/en (해운 대시보드, SURFF Terminal)
+      → 별도 서브도메인이므로 terminal.surff.kr 자체 sitemap에서 관리
+  -->
+
+</urlset>
