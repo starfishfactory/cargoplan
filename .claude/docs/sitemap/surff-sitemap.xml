@@ -63,4 +63,18 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- 프리미엄 데이터 - 해상운임·무역 데이터 구독 -->
+  <url>
+    <loc>https://surff.kr/pricing</loc>
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!--
+    외부 서브도메인 (surff.kr XML sitemap 범위 밖):
+    - https://terminal.surff.kr/en (해운 대시보드, SURFF Terminal)
+      → 별도 서브도메인이므로 terminal.surff.kr 자체 sitemap에서 관리
+  -->
+
 </urlset>

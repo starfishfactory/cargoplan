@@ -52,6 +52,16 @@ surff.kr
 │   ├── 해운 데이터맵 조회수 TOP 8 (Liner/Port 탭)
 │   └── 인기 물류 뉴스
 │
+├── /pricing (프리미엄 데이터)
+│   ├── 데이터 카테고리 탭 (해상운임, 무역 데이터)
+│   │   ├── 해상운임: 부산발/상해발 구간별 해상운임
+│   │   └── 무역 데이터: 기업별 수출실적, HS CODE별 수출실적, 선사별 물동량
+│   ├── 3가지 플랜
+│   │   ├── 데이터 즉시 다운로드 (Historical Data, Pay Now + 샘플)
+│   │   ├── 데이터 구독 (Real-Time Data, Pay Now)
+│   │   └── 웹 통합 및 API 연동 (Contact us + API Documentation)
+│   └── 조회 폼 (시작일/종료일, POL, POD)
+│
 ├── /login (로그인/회원가입)
 │   ├── 이메일 인증 폼
 │   └── 소셜 로그인 (NAVER, KAKAO, GOOGLE)
@@ -79,7 +89,12 @@ graph TD
 
     subgraph 유틸리티["유틸리티 메뉴"]
         TD_PAGE["/trade-data<br/>해운 데이터 맵"]
+        PRICING["/pricing<br/>프리미엄 데이터"]
         LOGIN["/login<br/>로그인/회원가입"]
+    end
+
+    subgraph 외부서비스["외부 서비스"]
+        TERMINAL["terminal.surff.kr<br/>해운 대시보드 (SURFF Terminal)"]
     end
 
     subgraph 법적고지["법적 고지"]
@@ -125,6 +140,8 @@ graph TD
     %% 유틸리티 메뉴 연결
     HOME ---|"유틸리티 메뉴"| LOGIN
     HOME ---|"유틸리티 메뉴"| TD_PAGE
+    HOME ---|"유틸리티 메뉴"| PRICING
+    HOME ---|"유틸리티 메뉴"| TERMINAL
 
     %% 스타일
     style HOME fill:#1a73e8,color:#fff
@@ -136,6 +153,8 @@ graph TD
     style LOGIN fill:#9e9e9e,color:#fff
     style TERM_USE fill:#9e9e9e,color:#fff
     style TERM_PERSONAL fill:#9e9e9e,color:#fff
+    style PRICING fill:#34a853,color:#fff
+    style TERMINAL fill:#ea4335,color:#fff
     style BLOG_DETAIL fill:#fbbc04,color:#000
 ```
 
@@ -151,6 +170,8 @@ graph TD
 | `/tracking` | 카고 트래킹 | BL 기반 화물 실시간 추적, B/L 관리 | 0.8 | daily | O |
 | `/blog` | 블로그 | 물류 동향, 카테고리별 아티클, 뉴스레터 | 0.7 | daily | O |
 | `/trade-data` | 해운 데이터 맵 | 물동량 대시보드, 선사 주가, 인기 뉴스 | 0.7 | weekly | O |
+| `/pricing` | 프리미엄 데이터 | 해상운임·무역 데이터 구독, 3가지 플랜, API 연동 | 0.7 | weekly | O |
+| `terminal.surff.kr/en` | 해운 대시보드 (SURFF Terminal) | 실시간 운임, 선사 주가, 화물 추적 통합 터미널 (외부 서브도메인) | - | - | O |
 | `/blog/detail/{slug}` | 블로그 상세 | 개별 아티클 콘텐츠 | - | 발행시 | 미확인 |
 | `/login` | 로그인/회원가입 | 이메일 인증, 소셜 로그인 | - | rarely | X |
 | `/termUse` | 서비스 이용약관 | 이용약관 (5장 25조) | - | rarely | X |

@@ -21,6 +21,7 @@
 | [데이터 센터 - 해상 운임 추이](https://surff.kr/fare) | `/fare` | 글로벌 선사의 해상 운임 추이를 실시간으로 확인하고, 손쉽게 원하는 노선의 운임을 찾아보세요. |
 | [카고 트래킹](https://surff.kr/tracking) | `/tracking` | BL 정보 입력만으로 내 화물이 어디있는지 실시간으로 확인할 수 있습니다. |
 | [해운 데이터 맵](https://surff.kr/trade-data) | `/trade-data` | 컨테이너 물동량 기반 물류 데이터 대시보드를 제공합니다. |
+| [프리미엄 데이터](https://surff.kr/pricing) | `/pricing` | 프리미엄 해상운임 및 무역 데이터 구독 서비스 |
 
 ---
 
@@ -58,3 +59,4 @@
 | [카카오 오픈채팅](https://open.kakao.com/o/goMIcDde) | open.kakao.com | 고객 소통 채널 |
 | [LinkedIn](https://www.linkedin.com/company/surff-kr/) | linkedin.com | 기업 프로필 |
 | [카카오 채널](https://pf.kakao.com/_PxglLxj) | pf.kakao.com | 카카오톡 친구 추가 |
+| [SURFF Terminal (해운 대시보드)](https://terminal.surff.kr/en) | terminal.surff.kr | 해운 대시보드 — 실시간 운임, 선사 주가, 화물 추적 통합 터미널 |
