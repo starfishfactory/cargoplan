@@ -17,11 +17,28 @@ fi
 
 generated=()
 
-while IFS=$'\t' read -r filename title description keywords anchor; do
+while IFS=$'\t' read -r filename title description keywords anchor content_file; do
   # Skip comments and empty lines
   [[ "$filename" =~ ^#.*$ || -z "$filename" ]] && continue
 
   echo "Generating $filename ..."
+
+  # Prepare content insertion
+  content_snippet=""
+  if [[ -n "${content_file:-}" && -f "$content_file" ]]; then
+    content_snippet=$(cat "$content_file")
+    echo "  -> Inserting content from $content_file"
+  elif [[ -n "${content_file:-}" ]]; then
+    echo "  WARNING: content file not found: $content_file" >&2
+  fi
+
+  # Prepare OG tags
+  og_tags="    <meta property=\"og:type\" content=\"website\">\n"
+  og_tags+="    <meta property=\"og:title\" content=\"${title}\">\n"
+  og_tags+="    <meta property=\"og:description\" content=\"${description}\">\n"
+  og_tags+="    <meta property=\"og:url\" content=\"${SITE_URL}/${filename}\">\n"
+  og_tags+="    <meta property=\"og:site_name\" content=\"카고플랜\">\n"
+  og_tags+="    <meta property=\"og:locale\" content=\"ko_KR\">"
 
   # Use awk for all replacements in a single pass
   awk \
@@ -30,6 +47,8 @@ while IFS=$'\t' read -r filename title description keywords anchor; do
     -v new_kw="$keywords" \
     -v canonical="$SITE_URL/$filename" \
     -v anchor_id="$anchor" \
+    -v og_tags="$og_tags" \
+    -v content_snippet="$content_snippet" \
   '
   BEGIN { skip_next_desc = 0 }
   {
@@ -69,6 +88,20 @@ while IFS=$'\t' read -r filename title description keywords anchor; do
     if (/<meta charset="utf-8">/) {
       print
       print "    <link rel=\"canonical\" href=\"" canonical "\">"
+      next
+    }
+
+    # Replace OG tags placeholder
+    if (/<!-- OG_TAGS -->/) {
+      printf "%s\n", og_tags
+      next
+    }
+
+    # Replace PAGE_CONTENT placeholder
+    if (/<!-- PAGE_CONTENT -->/) {
+      if (content_snippet != "") {
+        print content_snippet
+      }
       next
     }
 
